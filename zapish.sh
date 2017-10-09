@@ -97,10 +97,8 @@ function zapish_init() {
 		'Content-Type: application/json' -d \
 			"$request" $zapish_url)
 
-	echo zapish_url=\"$zapish_url\"	\
-		> ~/.zapish.rc
-	echo zapish_auth=\"$(echo $result | awk -F\" '{print $8}')\" \
-		>> ~/.zapish.rc
+	echo zapish_url=\"$zapish_url\"	> ~/.zapish.rc
+	echo zapish_auth=\"${result:27:-9}\" >> ~/.zapish.rc
 	chmod 600 ~/.zapish.rc
 }
 
