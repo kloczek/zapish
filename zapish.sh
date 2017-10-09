@@ -10,7 +10,6 @@ zapish_url=""
 zapish_auth=""
 
 zapish_request=""
-zapish_result=""
 
 json_str() {
 	local result="\"$1\":\"$2\""
@@ -77,9 +76,9 @@ zabbix_api() {
 		$(json_num id 0 \
 		""))))}"
 
-	zapish_result=$(curl --silent -X POST -H \
+	curl --silent -X POST -H \
 		'Content-Type: application/json' -d \
-			"$zapish_request" $zapish_url)
+			"$zapish_request" $zapish_url
 }
 
 #====================================
