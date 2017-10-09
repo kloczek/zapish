@@ -12,7 +12,7 @@ zapish_auth=""
 zapish_request=""
 zapish_result=""
 
-json_str() {
+function json_str() {
 	local result="\"$1\":\"$2\""
 	shift 2
 	while [ -n "$1" ]; do
@@ -22,7 +22,7 @@ json_str() {
 	echo $result
 }
 
-json_num() {
+function json_num() {
 	local result="\"$1\":$2"
 	shift 2
 	while [ -n "$1" ]; do
@@ -32,7 +32,7 @@ json_num() {
 	echo $result
 }
 
-json_list() {
+function json_list() {
 	local result="\"$1\":{$2"
 	shift 2
 	while [ -n "$1" ]; do
@@ -43,33 +43,11 @@ json_list() {
 	echo $result
 }
 
-json_array_num() {
-	local result="\"$1\":[$2"
-	shift 2
-	while [ -n "$1" ]; do
-		result+=",$1"
-		shift 1
-	done
-	result+="]"
-	echo $result
-}
-
-json_array_str() {
-	local result="\"$1\":[\"$2\""
-	shift 2
-	while [ -n "$1" ]; do
-		result+=",\"$1\""
-		shift 1
-	done
-	result+="]"
-	echo $result
-}
-
 #====================================
 # Zabbix API caller
 #====================================
 
-zabbix_api() {
+function zabbix_api() {
 	zapish_request="{$(json_str jsonrpc "2.0" \
 		$(json_str method "$1" \
 		"$2" \
@@ -86,7 +64,7 @@ zabbix_api() {
 # Chek and initialize authentication
 #====================================
 
-zapish_init() {
+function zapish_init() {
 	read -p "Enter URL of the zabbix API gateway [http://localhost/api_jsonrpc.php]: " zapish_url
 	if [ ! -n "$zapish_url" ]; then
 		zapish_url="http://localhost/api_jsonrpc.php"
@@ -119,8 +97,10 @@ zapish_init() {
 		'Content-Type: application/json' -d \
 			"$request" $zapish_url)
 
-	echo zapish_url=\"$zapish_url\"	> ~/.zapish.rc
-	echo zapish_auth=\"${result:27:-9}\" >> ~/.zapish.rc
+	echo zapish_url=\"$zapish_url\"	\
+		> ~/.zapish.rc
+	echo zapish_auth=\"$(echo $result | awk -F\" '{print $8}')\" \
+		>> ~/.zapish.rc
 	chmod 600 ~/.zapish.rc
 }
 
