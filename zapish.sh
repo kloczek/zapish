@@ -43,6 +43,28 @@ json_list() {
 	echo $result
 }
 
+json_array_num() {
+	local result="\"$1\":[$2"
+	shift 2
+	while [ -n "$1" ]; do
+		result+=",$1"
+		shift 1
+	done
+	result+="]"
+	echo $result
+}
+
+json_array_str() {
+	local result="\"$1\":[\"$2\""
+	shift 2
+	while [ -n "$1" ]; do
+		result+=",\"$1\""
+		shift 1
+	done
+	result+="]"
+	echo $result
+}
+
 #====================================
 # Zabbix API caller
 #====================================
