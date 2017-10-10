@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# get template by name
+
+. ../zapish.sh
+
+zapish_result=$(zabbix_api template.get \
+		$(json_list params \
+		$(json_str output simple \
+			$(json_list filter \
+				$(json_array_str host "ICMP" \
+				"") \
+			"")) \
+		"")
+	)
+
+echo ${zapish_result:27:-9}
+echo ${zapish_result}
