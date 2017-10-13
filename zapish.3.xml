@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 Tomasz Kłoczko <kloczek@fedoraproject.org>
+
+This program is free software, distributed under the terms of
+the GNU General Public License Version 2.
+-->
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" >
+<refentry id='zapish.sh.3'>
+  <info>
+    <title>GNU General Public License Version 2</title>
+	<copyright>
+	<year>2017</year>
+	<holder>Tomasz Kłoczko</holder>
+    </copyright>
+  </info>
+  <refentryinfo>
+    <author>
+      <firstname>Tomasz</firstname>
+      <surname>Kłoczko</surname>
+      <contrib>Creation, 2017</contrib>
+    </author>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle>zapish.sh</refentrytitle>
+    <manvolnum>3</manvolnum>
+    <refmiscinfo class="sectdesc">Library functions</refmiscinfo>
+    <refmiscinfo class="source">zapish.sh</refmiscinfo>
+  </refmeta>
+  <refnamediv id='name'>
+    <refname>zapish.sh</refname>
+    <refpurpose>Zabbix API SH interface</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv id='synopsis'>
+    <cmdsynopsis>
+      <command>. /usr/libexec/zapish.sh</command>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+  <refsect1 id='description'>
+    <title>DESCRIPTION</title>
+    <para>
+      The <command>zapish.sh</command> file provides include file which allows easy call Zabbix API functions from POSIX SH scripts.
+    </para>
+  </refsect1>
+
+  <refsect1 id='options'>
+    <title>FUNCTIONS</title>
+    <variablelist remap='IP'>
+      <varlistentry>
+	<term><option>json_array_num()</option></term>
+	<listitem>
+	  <para>TBD.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>json_array_str()</option></term>
+	<listitem>
+	  <para>TBD.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>json_list()</option></term>
+	<listitem>
+	  <para>TBD.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>json_num()</option></term>
+	<listitem>
+	  <para>TBD.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>json_str()</option></term>
+	<listitem>
+	  <para>TBD.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><option>zabbix_api()</option></term>
+	<listitem>
+	  <para>TBD.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='configuration'>
+    <title>CONFIGURATION</title>
+    <para>
+      The <command>zapish.sh</command> functions uses following configuration variables in
+      <filename>~/.zapish.rc</filename>:
+    </para>
+  </refsect1>
+
+  <refsect1 id='files'>
+    <title>FILES</title>
+    <variablelist>
+      <varlistentry>
+	<term><filename>/usr/libexec/zapish.sh</filename></term>
+	<listitem>
+	  <para>Default location of the zapish.sh include file.</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+
+  <refsect1 id='exit_values'>
+    <title>EXIT VALUES</title>
+    <para>
+      The <command>zapish.sh</command> functions exits with the following values:
+      <variablelist>
+	<varlistentry>
+	  <term><replaceable>0</replaceable></term>
+	  <listitem>
+	    <para>success</para>
+	  </listitem>
+	</varlistentry>
+      </variablelist>
+    </para>
+  </refsect1>
+
+  <refsect1 id='see_also'>
+    <title>SEE ALSO</title>
+    <para>
+      <citerefentry>
+	<refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum>
+      </citerefentry>.
+    </para>
+    <para>
+      <ulink url="https://github.com/kloczek/zapish/"/>
+    </para>
+    <para>
+      <ulink url="https://www.zabbix.com/documentation/3.4/manual/api/"/>
+    </para>
+  </refsect1>
+</refentry>

@@ -1,0 +1,107 @@
+'\" t
+.\"     Title: zapish.sh
+.\"    Author: Tomasz Kłoczko
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: 10/13/2017
+.\"    Manual: Library functions
+.\"    Source: zapish.sh
+.\"  Language: English
+.\"
+.TH "ZAPISH\&.SH" "3" "10/13/2017" "zapish\&.sh" "Library functions"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+zapish.sh \- Zabbix API SH interface
+.SH "SYNOPSIS"
+.HP \w'\fB\&.\ /usr/libexec/zapish\&.sh\fR\ 'u
+\fB\&. /usr/libexec/zapish\&.sh\fR
+.SH "DESCRIPTION"
+.PP
+The
+\fBzapish\&.sh\fR
+file provides include file which allows easy call Zabbix API functions from POSIX SH scripts\&.
+.SH "FUNCTIONS"
+.PP
+\fBjson_array_num()\fR
+.RS 4
+TBD\&.
+.RE
+.PP
+\fBjson_array_str()\fR
+.RS 4
+TBD\&.
+.RE
+.PP
+\fBjson_list()\fR
+.RS 4
+TBD\&.
+.RE
+.PP
+\fBjson_num()\fR
+.RS 4
+TBD\&.
+.RE
+.PP
+\fBjson_str()\fR
+.RS 4
+TBD\&.
+.RE
+.PP
+\fBzabbix_api()\fR
+.RS 4
+TBD\&.
+.RE
+.SH "CONFIGURATION"
+.PP
+The
+\fBzapish\&.sh\fR
+functions uses following configuration variables in
+~/\&.zapish\&.rc:
+.SH "FILES"
+.PP
+/usr/libexec/zapish\&.sh
+.RS 4
+Default location of the zapish\&.sh include file\&.
+.RE
+.SH "EXIT VALUES"
+.PP
+The
+\fBzapish\&.sh\fR
+functions exits with the following values:
+.PP
+\fI0\fR
+.RS 4
+success
+.RE
+.SH "SEE ALSO"
+.PP
+\fBsh\fR(1)\&.
+.PP
+\m[blue]\fB\%https://github.com/kloczek/zapish/\fR\m[]
+.PP
+\m[blue]\fB\%https://www.zabbix.com/documentation/3.4/manual/api/\fR\m[]
+.SH "AUTHOR"
+.PP
+\fBTomasz Kłoczko\fR
+.RS 4
+Creation, 2017
+.RE
+.SH "COPYRIGHT"
+.br
