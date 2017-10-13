@@ -108,8 +108,8 @@ the GNU General Public License Version 2.
     </variablelist>
   </refsect1>
 
-  <refsect1 id='exit_values'>
-    <title>EXIT VALUES</title>
+  <refsect1 id='exit_codes'>
+    <title>EXIT CODES</title>
     <para>
       The <command>zapish.sh</command> functions exits with the following values:
       <variablelist>
