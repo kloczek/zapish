@@ -12,56 +12,51 @@ zapish_auth=""
 zapish_request=""
 
 json_str() {
-	local result="\"$1\":\"$2\""
+	echo -n "\"$1\":\"$2\""
 	shift 2
 	while [ -n "$1" ]; do
-		result+=",$1"
+		echo -n ",$1"
 		shift 1
 	done
-	echo $result
 }
 
 json_num() {
-	local result="\"$1\":$2"
+	echo -n "\"$1\":$2"
 	shift 2
 	while [ -n "$1" ]; do
-		result+=",$1"
+		echo -n ",$1"
 		shift 1
 	done
-	echo $result
 }
 
 json_list() {
-	local result="\"$1\":{$2"
+	echo -n "\"$1\":{$2"
 	shift 2
 	while [ -n "$1" ]; do
-		result+=",$1"
+		echo -n ",$1"
 		shift 1
 	done
-	result+="}"
-	echo $result
+	echo -n "}"
 }
 
 json_array_num() {
-	local result="\"$1\":[$2"
+	echo -n "\"$1\":[$2"
 	shift 2
 	while [ -n "$1" ]; do
-		result+=",$1"
+		echo -n ",$1"
 		shift 1
 	done
-	result+="]"
-	echo $result
+	echo -n "]"
 }
 
 json_array_str() {
-	local result="\"$1\":[\"$2\""
+	echo -n "\"$1\":[\"$2\""
 	shift 2
 	while [ -n "$1" ]; do
-		result+=",\"$1\""
+		echo -n ",\"$1\""
 		shift 1
 	done
-	result+="]"
-	echo $result
+	echo -n "]"
 }
 
 #====================================
