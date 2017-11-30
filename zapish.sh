@@ -60,6 +60,24 @@ json_array_str() {
 }
 
 #====================================
+# Zabbix result processor
+#====================================
+ 
+json_get() {
+#	for i in $(eval "echo {1..${#1}}"); do
+#		echo -n "${1:$((i-1)):1} "
+#	done
+	echo "$1" | jq "$2"
+}
+
+json_error() {
+	if [ "$(json_get \"$1\" .error.code)" != "null" ]; then
+		json_get "$1" .error
+		exit 1
+	fi
+}
+
+#====================================
 # Zabbix API caller
 #====================================
 
@@ -71,9 +89,9 @@ zabbix_api() {
 		$(json_num id 0 \
 		""))))}"
 
-	curl --silent -X POST -H \
+	json_error "$(curl --silent -X POST -H \
 		'Content-Type: application/json' -d \
-			"$zapish_request" $zapish_url
+			"$zapish_request" $zapish_url)"
 }
 
 #====================================
@@ -109,13 +127,17 @@ zapish_init() {
 		))"
 	request+="}"
 
-	local result=$(curl --silent -X POST -H \
-		'Content-Type: application/json' -d \
-			"$request" $zapish_url)
+	local result=$(
+		json_error "$(curl --silent -X POST -H \
+			'Content-Type: application/json' -d \
+			"$request" $zapish_url)" \
+		)
 
 	echo zapish_url=\"$zapish_url\"	> ~/.zapish.rc
-	echo zapish_auth=\"${result:27:-9}\" >> ~/.zapish.rc
+	echo zapish_auth=$(json_get "$result" .result) >> ~/.zapish.rc
 	chmod 600 ~/.zapish.rc
+	echo "Zapish initialization sucessful"
+	exit 1
 }
 
 # initialization

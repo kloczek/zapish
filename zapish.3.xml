@@ -119,6 +119,12 @@ the GNU General Public License Version 2.
 	    <para>success</para>
 	  </listitem>
 	</varlistentry>
+	<varlistentry>
+	  <term><replaceable>1</replaceable></term>
+	  <listitem>
+	    <para>zapish initialization success (created ~/.zapish.rc)</para>
+	  </listitem>
+	</varlistentry>
       </variablelist>
     </para>
   </refsect1>
