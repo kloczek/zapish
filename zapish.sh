@@ -71,9 +71,11 @@ json_get() {
 }
 
 json_error() {
-	if [ "$(json_get \"$1\" .error.code)" != "null" ]; then
-		json_get "$1" .error
+	if [ "$(json_get ${1} .error.code)" != "null" ]; then
+		json_get $1 .error
 		exit 1
+	else
+		echo "$1"
 	fi
 }
 
