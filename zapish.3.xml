@@ -82,7 +82,7 @@ the GNU General Public License Version 2.
       <varlistentry>
 	<term><option>zabbix_api()</option></term>
 	<listitem>
-	  <para>TBD.</para>
+	  <para>Main zapish function used to call any zabbix API. This function expect a parametr needs to be passed </para>
 	</listitem>
       </varlistentry>
     </variablelist>
@@ -123,6 +123,12 @@ the GNU General Public License Version 2.
 	  <term><replaceable>1</replaceable></term>
 	  <listitem>
 	    <para>zapish initialization success (created ~/.zapish.rc)</para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><replaceable>2</replaceable></term>
+	  <listitem>
+	    <para>zabbix_api() function called without parameters.</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>
