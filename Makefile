@@ -1,8 +1,8 @@
 VERSION=0.1
 
-all: man3/zapish.3
+all: zapish.sh.3
 
-man3/zapish.3: zapish.3.xml
+zapish.sh.3: zapish.3.xml
 	xsltproc \
 		--param "man.authors.section.enabled" "1" \
 		--stringparam "man.output.base.dir" "0" \
