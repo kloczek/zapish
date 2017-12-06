@@ -84,6 +84,11 @@ json_error() {
 #====================================
 
 zabbix_api() {
+	if [ -z "$1" ]; then
+		echo "zabbix_api() function expects list of parameters describing API call"
+		exit 2
+	fi
+
 	zapish_request="{$(json_str jsonrpc "2.0" \
 		$(json_str method "$1" \
 		"$2" \
