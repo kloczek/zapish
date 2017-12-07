@@ -26,5 +26,8 @@ zapish_result=$(zabbix_api configuration.export \
 		"") \
 	"")
 )
-echo ${zapish_result} > ${template_name}.raw
 
+echo ${zapish_result} | jq .result > ${template_name}.raw
+echo "Template \"${template_name}\" has been written in ${template_name}.raw file."
+echo ${zapish_result} | jq -r .result | xmllint --format - > ${template_name}.xml
+echo "Template \"${template_name}\" has been written in ${template_name}.xml file."
