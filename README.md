@@ -7,7 +7,6 @@ Known bugs:
 - problem with string parametrs with spaces
 
 ToDo:
-- add function
 - replace jq by json parser wrrittent in SH
 - add function to convert regular xml to shell quoted format used configure.import zabbix API
 - finish zapish.xml documentation
