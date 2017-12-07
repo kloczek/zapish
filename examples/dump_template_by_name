@@ -1,0 +1,30 @@
+#!/bin/sh
+
+. ../zapish.sh
+
+template_name="ICMP"
+
+zapish_result=$(zabbix_api template.get \
+		$(json_list params \
+		$(json_str output simple \
+			$(json_list filter \
+				$(json_array_str host \
+					"${template_name}" \
+				"") \
+			"")) \
+		"")
+	)
+
+zapish_result=$(zabbix_api configuration.export \
+	$(json_list params \
+		$(json_list options \
+			$(json_array_num templates \
+				$(json_get "${zapish_result}" .result[].templateid) \
+			"") \
+		"") \
+		$(json_str format xml \
+		"") \
+	"")
+)
+echo ${zapish_result} > ${template_name}.raw
+
