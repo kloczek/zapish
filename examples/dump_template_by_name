@@ -4,7 +4,7 @@
 
 template_name="ICMP"
 
-zapish_result=$(zabbix_api template.get \
+templates=$(zabbix_api template.get \
 		$(json_list params \
 		$(json_str output simple \
 			$(json_list filter \
@@ -15,11 +15,13 @@ zapish_result=$(zabbix_api template.get \
 		"")
 	)
 
-zapish_result=$(zabbix_api configuration.export \
+templateid="$(json_get "${templates=}" .result[].templateid)"
+
+xml_output=$(zabbix_api configuration.export \
 	$(json_list params \
 		$(json_list options \
 			$(json_array_num templates \
-				$(json_get "${zapish_result}" .result[].templateid) \
+				${templateid} \
 			"") \
 		"") \
 		$(json_str format xml \
@@ -27,7 +29,6 @@ zapish_result=$(zabbix_api configuration.export \
 	"")
 )
 
-echo ${zapish_result} | jq .result > ${template_name}.raw
-echo "Template \"${template_name}\" has been written in ${template_name}.raw file."
-echo ${zapish_result} | jq -r .result | xmllint --format - > ${template_name}.xml
-echo "Template \"${template_name}\" has been written in ${template_name}.xml file."
+echo "Template: id=${templateid}, Name=\"${template_name}\" dump to ${template_name}.xml and ${template_name}.raw"
+echo ${xml_output} | jq -r .result | xmllint --format - > ${template_name}.xml
+echo ${xml_output} | jq .result > ${template_name}.raw
