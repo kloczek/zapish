@@ -90,11 +90,12 @@ zabbix_api() {
 	fi
 
 	zapish_request="{$(json_str jsonrpc "2.0" \
-		$(json_str method "$1" \
-		"$2" \
-		$(json_str auth $zapish_auth \
-		$(json_num id 0 \
-		""))))}"
+		"$(json_str method "$1" \
+			"$2" \
+			"$(json_str auth $zapish_auth "")" \
+			"$(json_num id 0 "")" \
+		"")" \
+	)}"
 
 	json_error "$(curl --silent -X POST -H \
 		'Content-Type: application/json' -d \

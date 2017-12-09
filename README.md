@@ -4,7 +4,6 @@
 Version: (still not yet) v1.0
 
 Known bugs:
-- problem with string parametrs with spaces
 
 ToDo:
 - replace jq by json parser wrrittent in SH
