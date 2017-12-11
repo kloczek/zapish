@@ -122,13 +122,25 @@ the GNU General Public License Version 2.
 	<varlistentry>
 	  <term><replaceable>1</replaceable></term>
 	  <listitem>
-	    <para>zapish initialization success (created ~/.zapish.rc)</para>
+	    <para>zabbix API authentication error</para>
 	  </listitem>
 	</varlistentry>
 	<varlistentry>
 	  <term><replaceable>2</replaceable></term>
 	  <listitem>
-	    <para>zabbix_api() function called without parameters.</para>
+	    <para>zapish initialization successfull (created ~/.zapish.rc)</para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><replaceable>3</replaceable></term>
+	  <listitem>
+	    <para>zabbix_api() function called without parameters</para>
+	  </listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><replaceable>4</replaceable></term>
+	  <listitem>
+	    <para>zabbix_ap() call error</para>
 	  </listitem>
 	</varlistentry>
       </variablelist>

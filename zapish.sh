@@ -73,7 +73,7 @@ json_get() {
 json_error() {
 	if [ "$(json_get "${1}" .error.code)" != "null" ]; then
 		json_get "${1}" .error
-		exit 1
+		exit 4
 	else
 		echo "$1"
 	fi
@@ -86,7 +86,7 @@ json_error() {
 zabbix_api() {
 	if [ -z "$1" ]; then
 		echo "zabbix_api() function expects list of parameters describing API call"
-		exit 2
+		exit 3
 	fi
 
 	zapish_request="{$(json_str jsonrpc "2.0" \
@@ -135,17 +135,20 @@ zapish_init() {
 		))"
 	request+="}"
 
-	local result=$(
-		json_error "$(curl --silent -X POST -H \
-			'Content-Type: application/json' -d \
-			"$request" $zapish_url)" \
-		)
+	local result="$(curl --silent -X POST -H \
+		'Content-Type: application/json' -d "$request" $zapish_url)"
+
+	if [ "$(json_get "${result}" .error )" != "null" ]; then
+		echo "Zabbix API authentication error."
+		exit 1
+	fi
 
 	echo zapish_url=\"$zapish_url\"	> ~/.zapish.rc
-	echo zapish_auth=$(json_get "$result" .result) >> ~/.zapish.rc
+	echo zapish_auth=$(json_get "${result}" .result) >> ~/.zapish.rc
 	chmod 600 ~/.zapish.rc
-	echo "Zapish initialization sucessful"
-	exit 1
+	echo "Zabbix API authentication sucessfull. No Zabbix API call."
+	echo "zapish authentication tocken has been stored in ~/.zapish.rc"
+	exit 2
 }
 
 # initialization

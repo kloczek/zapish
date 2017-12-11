@@ -2,12 +2,12 @@
 .\"     Title: zapish.sh
 .\"    Author: Tomasz Kłoczko
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 12/06/2017
+.\"      Date: 12/11/2017
 .\"    Manual: Library functions
 .\"    Source: zapish.sh
 .\"  Language: English
 .\"
-.TH "ZAPISH\&.SH" "3" "12/06/2017" "zapish\&.sh" "Library functions"
+.TH "ZAPISH\&.SH" "3" "12/11/2017" "zapish\&.sh" "Library functions"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -93,12 +93,22 @@ success
 .PP
 \fI1\fR
 .RS 4
-zapish initialization success (created ~/\&.zapish\&.rc)
+zabbix API authentication error
 .RE
 .PP
 \fI2\fR
 .RS 4
-zabbix_api() function called without parameters\&.
+zapish initialization successfull (created ~/\&.zapish\&.rc)
+.RE
+.PP
+\fI3\fR
+.RS 4
+zabbix_api() function called without parameters
+.RE
+.PP
+\fI4\fR
+.RS 4
+zabbix_ap() call error
 .RE
 .SH "SEE ALSO"
 .PP
