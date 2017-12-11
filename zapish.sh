@@ -112,9 +112,9 @@ zapish_init() {
 		zapish_url="http://localhost/api_jsonrpc.php"
 	fi
 
-	read -p "Enter zabbix API accout name [admin]: " zapish_user
+	read -p "Enter zabbix API accout name [Admin]: " zapish_user
 	if [ ! -n "$zapish_user" ]; then
-		zapish_user="admin"
+		zapish_user="Admin"
 	fi
 
 	read -p "Enter zabbix API account password [zabbix]: " zapish_pwd
