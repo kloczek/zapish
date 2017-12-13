@@ -7,7 +7,7 @@
 zapish_result=$(zabbix_api template.get \
 	"$(json_list params \
 		"$(json_list "filter" \
-			"$(json_array_str "host" \
+			"$(json_array_str "name" \
 				"ICMP" \
 				"OS Linux" \
 			"")" \
