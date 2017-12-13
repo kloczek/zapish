@@ -5,14 +5,13 @@ Copyright (C) 2017 Tomasz Kłoczko <kloczek@fedoraproject.org>
 This program is free software, distributed under the terms of
 the GNU General Public License Version 2.
 -->
-<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN"
-  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" >
-<refentry id='zapish.sh.3'>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<refentry id="zapish.sh.3">
   <info>
     <title>GNU General Public License Version 2</title>
-	<copyright>
-	<year>2017</year>
-	<holder>Tomasz Kłoczko</holder>
+    <copyright>
+      <year>2017</year>
+      <holder>Tomasz Kłoczko</holder>
     </copyright>
   </info>
   <refentryinfo>
@@ -28,131 +27,104 @@ the GNU General Public License Version 2.
     <refmiscinfo class="sectdesc">Library functions</refmiscinfo>
     <refmiscinfo class="source">zapish.sh</refmiscinfo>
   </refmeta>
-  <refnamediv id='name'>
+  <refnamediv id="name">
     <refname>zapish.sh</refname>
     <refpurpose>Zabbix API SH interface</refpurpose>
   </refnamediv>
-
-  <refsynopsisdiv id='synopsis'>
+  <refsynopsisdiv id="synopsis">
     <cmdsynopsis>
       <command>. /usr/libexec/zapish.sh</command>
     </cmdsynopsis>
   </refsynopsisdiv>
-
-  <refsect1 id='description'>
+  <refsect1 id="description">
     <title>DESCRIPTION</title>
     <para>
       The <command>zapish.sh</command> file provides include file which allows easy call Zabbix API functions from POSIX SH scripts.
     </para>
   </refsect1>
-
-  <refsect1 id='options'>
+  <refsect1 id="options">
     <title>FUNCTIONS</title>
-    <variablelist remap='IP'>
+    <variablelist remap="IP">
       <varlistentry>
-	<term><option>json_array_num()</option></term>
-	<listitem>
-	  <para>TBD.</para>
-	</listitem>
+        <term>
+          <option>json_array_num()</option>
+        </term>
+        <listitem>
+          <para>TBD.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-	<term><option>json_array_str()</option></term>
-	<listitem>
-	  <para>TBD.</para>
-	</listitem>
+        <term>
+          <option>json_array_str()</option>
+        </term>
+        <listitem>
+          <para>TBD.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-	<term><option>json_list()</option></term>
-	<listitem>
-	  <para>TBD.</para>
-	</listitem>
+        <term>
+          <option>json_list()</option>
+        </term>
+        <listitem>
+          <para>TBD.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-	<term><option>json_num()</option></term>
-	<listitem>
-	  <para>TBD.</para>
-	</listitem>
+        <term>
+          <option>json_num()</option>
+        </term>
+        <listitem>
+          <para>TBD.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-	<term><option>json_str()</option></term>
-	<listitem>
-	  <para>TBD.</para>
-	</listitem>
+        <term>
+          <option>json_str()</option>
+        </term>
+        <listitem>
+          <para>TBD.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-	<term><option>zabbix_api()</option></term>
-	<listitem>
-	  <para>Main zapish function used to call any zabbix API. This function expect a parametr needs to be passed </para>
-	</listitem>
+        <term>
+          <option>zabbix_api()</option>
+        </term>
+        <listitem>
+          <para>Main zapish function used to call any zabbix API. This function expect a parametr needs to be passed </para>
+        </listitem>
       </varlistentry>
     </variablelist>
   </refsect1>
-
-  <refsect1 id='configuration'>
+  <refsect1 id="configuration">
     <title>CONFIGURATION</title>
     <para>
       The <command>zapish.sh</command> functions uses following configuration variables in
       <filename>~/.zapish.rc</filename>:
     </para>
   </refsect1>
-
-  <refsect1 id='files'>
+  <refsect1 id="files">
     <title>FILES</title>
     <variablelist>
       <varlistentry>
-	<term><filename>/usr/libexec/zapish.sh</filename></term>
-	<listitem>
-	  <para>Default location of the zapish.sh include file.</para>
-	</listitem>
+        <term>
+          <filename>/usr/libexec/zapish.sh</filename>
+        </term>
+        <listitem>
+          <para>Default location of the zapish.sh include file.</para>
+        </listitem>
       </varlistentry>
     </variablelist>
   </refsect1>
-
-  <refsect1 id='exit_codes'>
+  <refsect1 id="exit_codes">
     <title>EXIT CODES</title>
     <para>
       The <command>zapish.sh</command> functions exits with the following values:
-      <variablelist>
-	<varlistentry>
-	  <term><replaceable>0</replaceable></term>
-	  <listitem>
-	    <para>success</para>
-	  </listitem>
-	</varlistentry>
-	<varlistentry>
-	  <term><replaceable>1</replaceable></term>
-	  <listitem>
-	    <para>zabbix API authentication error</para>
-	  </listitem>
-	</varlistentry>
-	<varlistentry>
-	  <term><replaceable>2</replaceable></term>
-	  <listitem>
-	    <para>zapish initialization successfull (created ~/.zapish.rc)</para>
-	  </listitem>
-	</varlistentry>
-	<varlistentry>
-	  <term><replaceable>3</replaceable></term>
-	  <listitem>
-	    <para>zabbix_api() function called without parameters</para>
-	  </listitem>
-	</varlistentry>
-	<varlistentry>
-	  <term><replaceable>4</replaceable></term>
-	  <listitem>
-	    <para>zabbix_ap() call error</para>
-	  </listitem>
-	</varlistentry>
-      </variablelist>
+      <variablelist><varlistentry><term><replaceable>0</replaceable></term><listitem><para>success</para></listitem></varlistentry><varlistentry><term><replaceable>1</replaceable></term><listitem><para>zabbix API authentication error</para></listitem></varlistentry><varlistentry><term><replaceable>2</replaceable></term><listitem><para>zapish initialization successfull (created ~/.zapish.rc)</para></listitem></varlistentry><varlistentry><term><replaceable>3</replaceable></term><listitem><para>zabbix_api() function called without parameters</para></listitem></varlistentry><varlistentry><term><replaceable>4</replaceable></term><listitem><para>zabbix_ap() call error</para></listitem></varlistentry></variablelist>
     </para>
   </refsect1>
-
-  <refsect1 id='see_also'>
+  <refsect1 id="see_also">
     <title>SEE ALSO</title>
-    <para>
-      <citerefentry>
-	<refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum>
-      </citerefentry>.
+    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>.
     </para>
     <para>
       <ulink url="https://github.com/kloczek/zapish/"/>
