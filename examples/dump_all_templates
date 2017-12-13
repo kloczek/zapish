@@ -1,0 +1,31 @@
+#!/bin/sh
+
+. ../zapish.sh
+
+# Get all templates IDs
+json_get "$(zabbix_api template.get \
+		"$(json_list params \
+			"$(json_str output extend \
+			"")" \
+		"")" \
+	)" '.result[].name' | \
+while read template_name; do
+	template_id="$(json_get "$(zabbix_api template.get \
+		"$(json_list params \
+			"$(json_list "filter" \
+				"$(json_num "name" \
+					"$template_name" \
+				"")" \
+			"")" \
+			"$(json_str "output" "simple" \
+			"")" \
+		"")" \
+	)" .result[].templateid)"
+
+	echo "Dump template id=${template_id}, Name=${template_name}"
+
+	#echo "Template: id=${templateid}, Name=\"${template_name}\" dump to ${template_name}.xml and ${template_name}.raw"
+	#echo ${xml_output} | jq -r .result | xmllint --format - > ${template_name}.xml
+	#echo ${xml_output} | jq .result > ${template_name}.raw
+done
+
