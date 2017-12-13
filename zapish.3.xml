@@ -19,6 +19,7 @@ the GNU General Public License Version 2.
       <firstname>Tomasz</firstname>
       <surname>Kłoczko</surname>
       <contrib>Creation, 2017</contrib>
+      <ulink url="mailto:kloczek@pkgs.fedoraproject.org"/>
     </author>
   </refentryinfo>
   <refmeta>
@@ -117,14 +118,45 @@ the GNU General Public License Version 2.
   </refsect1>
   <refsect1 id="exit_codes">
     <title>EXIT CODES</title>
-    <para>
-      The <command>zapish.sh</command> functions exits with the following values:
-      <variablelist><varlistentry><term><replaceable>0</replaceable></term><listitem><para>success</para></listitem></varlistentry><varlistentry><term><replaceable>1</replaceable></term><listitem><para>zabbix API authentication error</para></listitem></varlistentry><varlistentry><term><replaceable>2</replaceable></term><listitem><para>zapish initialization successfull (created ~/.zapish.rc)</para></listitem></varlistentry><varlistentry><term><replaceable>3</replaceable></term><listitem><para>zabbix_api() function called without parameters</para></listitem></varlistentry><varlistentry><term><replaceable>4</replaceable></term><listitem><para>zabbix_ap() call error</para></listitem></varlistentry></variablelist>
-    </para>
+    <table xml:id="ex.calstable" frame="all" pgwidepgwide="1">
+      <title>The <command>zapish.sh</command> functions may exits with the following exit codes:</title>
+      <tgroup cols="2" colsep="1" rowsep="1">
+        <colspec colname="code"/>
+        <colspec colname="desc"/>
+        <thead>
+          <row>
+            <entry align="center">Exit code</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry align="center">0</entry>
+            <entry>success</entry>
+          </row>
+          <row>
+            <entry align="center">1</entry>
+            <entry>zabbix API authentication error</entry>
+          </row>
+          <row>
+            <entry align="center">2</entry>
+            <entry>zapish initialization successfull (created ~/.zapish.rc)</entry>
+          </row>
+          <row>
+            <entry align="center">3</entry>
+            <entry>zabbix_api() function called without parameters</entry>
+          </row>
+          <row>
+            <entry align="center">4</entry>
+            <entry>zabbix_ap() call error</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </refsect1>
   <refsect1 id="see_also">
     <title>SEE ALSO</title>
-    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>.
+    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>
     </para>
     <para>
       <ulink url="https://github.com/kloczek/zapish/"/>
