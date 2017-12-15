@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ../zapish.sh
+. ../zapish.inc
 
 template_name="ICMP"
 

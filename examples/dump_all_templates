@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ../zapish.sh
+. ../zapish.inc
 
 # Get all templates IDs
 json_get "$(zabbix_api template.get \
@@ -23,6 +23,17 @@ while read template_name; do
 	)" .result[].templateid)"
 
 	echo "Dump template id=${template_id}, Name=${template_name}"
+	xml_output=$(zabbix_api configuration.export \
+		"$(json_list params \
+			"$(json_list options \
+				"$(json_array_num templates \
+					${templateid} \
+				"")" \
+			"")" \
+			"$(json_str format xml \
+			"")" \
+		"")" \
+	)
 
 	#echo "Template: id=${templateid}, Name=\"${template_name}\" dump to ${template_name}.xml and ${template_name}.raw"
 	#echo ${xml_output} | jq -r .result | xmllint --format - > ${template_name}.xml

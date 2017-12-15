@@ -4,7 +4,7 @@ libexecdir=/usr/libexec
 
 all: zapish.inc.3
 
-zapish.inc.3: zapish.inc.xml
+zapish.inc.3: zapish.inc.3.xml
 	xsltproc \
 		--param "man.authors.section.enabled" "1" \
 		--stringparam "man.output.base.dir" "0" \

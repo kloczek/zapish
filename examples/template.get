@@ -2,7 +2,7 @@
 #
 # get template by name
 
-. ../zapish.sh
+. ../zapish.inc
 
 zapish_result=$(zabbix_api template.get \
 	"$(json_list params \

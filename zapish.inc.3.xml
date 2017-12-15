@@ -6,7 +6,7 @@ This program is free software, distributed under the terms of
 the GNU General Public License Version 2.
 -->
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<refentry id="zapish.sh.3">
+<refentry id="zapish.inc.3">
   <info>
     <title>GNU General Public License Version 2</title>
     <copyright>
@@ -23,24 +23,24 @@ the GNU General Public License Version 2.
     </author>
   </refentryinfo>
   <refmeta>
-    <refentrytitle>zapish.sh</refentrytitle>
+    <refentrytitle>zapish.inc</refentrytitle>
     <manvolnum>3</manvolnum>
     <refmiscinfo class="sectdesc">Library functions</refmiscinfo>
-    <refmiscinfo class="source">zapish.sh</refmiscinfo>
+    <refmiscinfo class="source">zapish.inc</refmiscinfo>
   </refmeta>
   <refnamediv id="name">
-    <refname>zapish.sh</refname>
+    <refname>zapish.inc</refname>
     <refpurpose>Zabbix API SH interface</refpurpose>
   </refnamediv>
   <refsynopsisdiv id="synopsis">
     <cmdsynopsis>
-      <command>. /usr/libexec/zapish.sh</command>
+      <command>. /usr/libexec/zapish.inc</command>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1 id="description">
     <title>DESCRIPTION</title>
     <para>
-      The <command>zapish.sh</command> file provides include file which allows easy call Zabbix API functions from POSIX SH scripts.
+      The <command>zapish.inc</command> file provides include file which allows easy call Zabbix API functions from POSIX SH scripts.
     </para>
   </refsect1>
   <refsect1 id="options">
@@ -99,7 +99,7 @@ the GNU General Public License Version 2.
   <refsect1 id="configuration">
     <title>CONFIGURATION</title>
     <para>
-      The <command>zapish.sh</command> functions uses following configuration variables in
+      The <command>zapish.inc</command> functions uses following configuration variables in
       <filename>~/.zapish.rc</filename>:
     </para>
   </refsect1>
@@ -108,10 +108,10 @@ the GNU General Public License Version 2.
     <variablelist>
       <varlistentry>
         <term>
-          <filename>/usr/libexec/zapish.sh</filename>
+          <filename>/usr/libexec/zapish.inc</filename>
         </term>
         <listitem>
-          <para>Default location of the zapish.sh include file.</para>
+          <para>Default location of the zapish.inc include file.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -119,7 +119,7 @@ the GNU General Public License Version 2.
   <refsect1 id="exit_codes">
     <title>EXIT CODES</title>
     <table frame="all" pgwide="0" align="left" shortentry="1">
-      <title>The <command>zapish.sh</command> functions may exits with the following exit codes:</title>
+      <title>The <command>zapish.inc</command> functions may exits with the following exit codes:</title>
       <tgroup cols="2" colsep="1" rowsep="1">
         <colspec align="center"/>
         <colspec align="left"/>
