@@ -1,8 +1,10 @@
 VERSION=0.1
 
-all: zapish.sh.3
+libexecdir=/usr/libexec
 
-zapish.sh.3: zapish.3.xml
+all: zapish.inc.3
+
+zapish.inc.3: zapish.inc.xml
 	xsltproc \
 		--param "man.authors.section.enabled" "1" \
 		--stringparam "man.output.base.dir" "0" \
