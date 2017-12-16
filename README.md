@@ -1,5 +1,5 @@
-# zapish - Zabbix API SHell bindings
-------------------------------------
+# zapish - Zabbix API SHell binding
+-----------------------------------
 
 Version: (still not yet) v1.0 rc1
 
