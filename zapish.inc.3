@@ -2,12 +2,12 @@
 .\"     Title: zapish.inc
 .\"    Author: Tomasz Kłoczko
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 12/15/2017
+.\"      Date: 12/16/2017
 .\"    Manual: Library functions
 .\"    Source: zapish.inc
 .\"  Language: English
 .\"
-.TH "ZAPISH\&.INC" "3" "12/15/2017" "zapish\&.inc" "Library functions"
+.TH "ZAPISH\&.INC" "3" "12/16/2017" "zapish\&.inc" "Library functions"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -36,35 +36,93 @@ zapish.inc \- Zabbix API SH interface
 .PP
 The
 \fBzapish\&.inc\fR
-file provides include file which allows easy call Zabbix API functions from POSIX SH scripts\&.
+is file to include in onw SH/bash scripts with few functions which makes calling zabbix API easy\&.
+.PP
+It consist from few functions for:
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+construct json string fields like string, numeric and arrays
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+the main
+\fBzabbix_api\fR
+function which is used to call zabbix API
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+json return values parser/extractor
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+the
+\fBzapish_init\fR
+function which reds ~/\&.zapish\&.rc configuration file or initializes if it does not exist
+.RE
+.PP
+At the moment zapish\&.inc is not fullu POSIX SH compliant because it uses in few places local keyword which is used to define functions local variables\&. However my intention is to rewrite it to make it fully POSIX SH compliant code\&.
 .SH "FUNCTIONS"
 .PP
-\fBjson_array_num()\fR
+\fBjson_array_num\fR
+.RS 4
+It is variable list number arguments number function
+.sp
+\fBjson_array_num\fR
+"array_name" num1 [[num2] \&.\&.\&.] ""
+.RE
+.PP
+\fBjson_array_str\fR
+.RS 4
+It is variable list number arguments number function
+.sp
+\fBjson_array_str\fR
+"array_name" "str1" [["str2"] \&.\&.\&.] ""
+.RE
+.PP
+\fBjson_list\fR
 .RS 4
 TBD\&.
 .RE
 .PP
-\fBjson_array_str()\fR
+\fBjson_num\fR
 .RS 4
 TBD\&.
 .RE
 .PP
-\fBjson_list()\fR
+\fBjson_str\fR
 .RS 4
 TBD\&.
 .RE
 .PP
-\fBjson_num()\fR
-.RS 4
-TBD\&.
-.RE
-.PP
-\fBjson_str()\fR
-.RS 4
-TBD\&.
-.RE
-.PP
-\fBzabbix_api()\fR
+\fBzabbix_api\fR
 .RS 4
 Main zapish function used to call any zabbix API\&. This function expect a parametr needs to be passed
 .RE

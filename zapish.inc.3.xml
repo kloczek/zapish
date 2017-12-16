@@ -40,7 +40,41 @@ the GNU General Public License Version 2.
   <refsect1 id="description">
     <title>DESCRIPTION</title>
     <para>
-      The <command>zapish.inc</command> file provides include file which allows easy call Zabbix API functions from POSIX SH scripts.
+       The <command>zapish.inc</command> is file to include in onw SH/bash
+       scripts with few functions which makes calling zabbix API easy.
+    </para>
+    <para>
+       It consist from few functions for:
+    </para>
+    <itemizedlist mark="zapish_provides">
+      <listitem>
+        <para>
+          construct json string fields like string, numeric and arrays
+          </para>
+      </listitem>
+      <listitem>
+        <para>
+          the main <command>zabbix_api</command> function which is used
+          to call zabbix API
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          json return values parser/extractor
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          the <command>zapish_init</command> function which reds ~/.zapish.rc
+          configuration file or initializes if it does not exist
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      At the moment zapish.inc is not fullu POSIX SH compliant because
+      it uses in few places local keyword which is used to define functions
+      local variables. However my intention is to rewrite it to make it
+      fully POSIX SH compliant code.
     </para>
   </refsect1>
   <refsect1 id="options">
@@ -48,7 +82,25 @@ the GNU General Public License Version 2.
     <variablelist remap="IP">
       <varlistentry>
         <term>
-          <option>json_array_num()</option>
+          <option>json_array_num</option>
+        </term>
+        <listitem>
+          <para>It is variable list number arguments number function</para>
+          <para><command>json_array_num</command> "array_name" num1 [[num2] ...] ""</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>json_array_str</option>
+        </term>
+        <listitem>
+          <para>It is variable list number arguments number function</para>
+          <para><command>json_array_str</command> "array_name" "str1" [["str2"] ...] ""</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>json_list</option>
         </term>
         <listitem>
           <para>TBD.</para>
@@ -56,7 +108,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          <option>json_array_str()</option>
+          <option>json_num</option>
         </term>
         <listitem>
           <para>TBD.</para>
@@ -64,7 +116,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          <option>json_list()</option>
+          <option>json_str</option>
         </term>
         <listitem>
           <para>TBD.</para>
@@ -72,23 +124,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          <option>json_num()</option>
-        </term>
-        <listitem>
-          <para>TBD.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>
-          <option>json_str()</option>
-        </term>
-        <listitem>
-          <para>TBD.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>
-          <option>zabbix_api()</option>
+          <option>zabbix_api</option>
         </term>
         <listitem>
           <para>Main zapish function used to call any zabbix API. This function expect a parametr needs to be passed </para>
@@ -156,7 +192,11 @@ the GNU General Public License Version 2.
   </refsect1>
   <refsect1 id="see_also">
     <title>SEE ALSO</title>
-    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+    <para>
+      <citerefentry>
+        <refentrytitle>sh</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry>
     </para>
     <para>
       <ulink url="https://github.com/kloczek/zapish/"/>
