@@ -12,7 +12,7 @@ It consist from few functions for:
   initializes if it does not exist
 
 -----------------------------------
-At the moment zapish.inc is not fully POSIX SH compliant because it uses in
+### At the moment zapish.inc is not fully POSIX SH compliant because it uses in
 few places local keyword which is used to define functions local variables. 
 However my intention is to rewrite it to make it fully POSIX SH compliant
 code.
