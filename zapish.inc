@@ -1,4 +1,4 @@
-# zapish - Zabbix API SHell bindin
+# zapish - Zabbix API SHell binding
 # 
 # This program is free software, distributed under the terms of
 # the GNU General Public License Version 2.
