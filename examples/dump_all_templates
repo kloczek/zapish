@@ -4,14 +4,15 @@
 
 # Get all templates IDs
 json_get "$(zabbix_api template.get \
-		"$(json_list params \
-			"$(json_str output extend \
-			"")" \
+	"$(json_list params \
+		"$(json_str output extend \
 		"")" \
-	)" '.result[].name' | \
+	"")" \
+)" '.result[].name' | \
 while read template_name; do
-	# strip down leading and trailing " \
-	template_name="${template_name:1:-1}" \
+	# strip down leading and trailing quotes
+	template_name="${template_name:1:-1}"
+
 	template_id="$(json_get "$(zabbix_api template.get \
 		"$(json_list params \
 			"$(json_list "filter" \
@@ -38,7 +39,6 @@ while read template_name; do
 
 	printf "Template id=%7s, Name=%-40s dump to \"%s.xml\"\n" ${template_id} "\"${template_name}\"" "${template_name}"
 	echo "${xml_output}" | jq -r .result | xmllint --format - > ${template_name}.xml
-	#echo "Template: id=${templateid}, Name=\"${template_name}\" dump to ${template_name}.raw"
+	#printf "Template id=%7s, Name=%-40s dump to \"%s.raw\"\n" ${template_id} "\"${template_name}\"" "${template_name}"
 	#echo "${xml_output}" | jq .result > ${template_name}.raw
 done
-
