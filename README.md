@@ -11,7 +11,8 @@ It consist from few functions for:
 * the zapish_init function which reds ~/.zapish.rc configuration file or
   initializes if it does not exist
 
-At the moment zapish.inc is not fullu POSIX SH compliant because it uses in
+-----------------------------------
+At the moment zapish.inc is not fully POSIX SH compliant because it uses in
 few places local keyword which is used to define functions local variables. 
 However my intention is to rewrite it to make it fully POSIX SH compliant
 code.
