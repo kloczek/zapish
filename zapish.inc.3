@@ -2,12 +2,12 @@
 .\"     Title: zapish.inc
 .\"    Author: Tomasz Kłoczko
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 12/16/2017
+.\"      Date: 12/18/2017
 .\"    Manual: Library functions
 .\"    Source: zapish.inc
 .\"  Language: English
 .\"
-.TH "ZAPISH\&.INC" "3" "12/16/2017" "zapish\&.inc" "Library functions"
+.TH "ZAPISH\&.INC" "3" "12/18/2017" "zapish\&.inc" "Library functions"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -95,7 +95,7 @@ At the moment zapish\&.inc is not fullu POSIX SH compliant because it uses in fe
 .PP
 \fBjson_array_num\fR
 .RS 4
-Variable number argument json field array of numbers function generator\&.
+This function prints string which is in format of the json table of numbers\&.
 .sp
 \fBjson_array_num\fR
 "array_name" num1 [[num2] \&.\&.\&.] ""
@@ -103,7 +103,7 @@ Variable number argument json field array of numbers function generator\&.
 .PP
 \fBjson_array_str\fR
 .RS 4
-Variable number argument json field array of strings function generator\&.
+This function prints string which is in format of the json table of strings\&.
 .sp
 \fBjson_array_str\fR
 "array_name" "str1" [["str2"] \&.\&.\&.] ""
@@ -123,6 +123,9 @@ TBD\&.
 .RS 4
 TBD\&.
 .RE
+.PP
+\fBNOTE:\fR
+Last argument of all above functions must to be epty string ("")\&.
 .PP
 \fBzabbix_api\fR
 .RS 4
