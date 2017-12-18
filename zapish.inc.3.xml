@@ -85,7 +85,7 @@ the GNU General Public License Version 2.
           <option>json_array_num</option>
         </term>
         <listitem>
-          <para>Variable number argument json field array of numbers function generator.</para>
+          <para>This function prints string which is in format of the json table of numbers.</para>
           <para><command>json_array_num</command> "array_name" num1 [[num2] ...] ""</para>
         </listitem>
       </varlistentry>
@@ -94,7 +94,7 @@ the GNU General Public License Version 2.
           <option>json_array_str</option>
         </term>
         <listitem>
-          <para>Variable number argument json field array of strings function generator.</para>
+          <para>This function prints string which is in format of the json table of strings.</para>
           <para><command>json_array_str</command> "array_name" "str1" [["str2"] ...] ""</para>
         </listitem>
       </varlistentry>
@@ -122,12 +122,15 @@ the GNU General Public License Version 2.
           <para>TBD.</para>
         </listitem>
       </varlistentry>
+      <para><command>NOTE:</command>
+      Last argument of all above functions must to be epty string ("").</para>
       <varlistentry>
         <term>
           <option>zabbix_api</option>
         </term>
         <listitem>
-          <para>Main zapish function used to call any zabbix API. This function expect only one parametr in which should be </para>
+          <para>Main zapish function used to call any zabbix API. This
+          function expect only one parametr in which should be </para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -219,15 +222,8 @@ the GNU General Public License Version 2.
   </refsect1>
   <refsect1 id="see_also">
     <title>SEE ALSO</title>
-    <para>
-      <citerefentry>
-        <refentrytitle>sh</refentrytitle>
-        <manvolnum>1</manvolnum>
-      </citerefentry>,
-      <citerefentry>
-        <refentrytitle>bash</refentrytitle>
-        <manvolnum>1</manvolnum>
-      </citerefentry>.
+    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+      <citerefentry><refentrytitle>bash</refentrytitle><manvolnum>1</manvolnum></citerefentry>.
     </para>
     <para>
       <ulink url="https://github.com/kloczek/zapish/"/>
