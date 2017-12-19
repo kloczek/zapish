@@ -15,13 +15,21 @@ the GNU General Public License Version 2.
     </copyright>
     <authorgroup>
       <author>
-        <firstname>Tomasz</firstname>
-        <surname>Kłoczko</surname>
-        <affiliation>
-          <address>
-            <email>kloczek@fedoraproject.org</email>
-          </address>
-        </affiliation>
+        <personname>
+          <firstname>Tomasz</firstname>
+          <surname>Kłoczko</surname>
+          <affiliation>
+            <address>
+              <email>kloczek@fedoraproject.org</email>
+            </address>
+          </affiliation>
+        </personname>
+        <personblurb>
+          kloczek
+        </personblurb>
+        <contrib>
+          Creator
+        </contrib>
       </author>
     </authorgroup>
   </refentryinfo>
