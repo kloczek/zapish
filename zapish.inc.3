@@ -36,9 +36,9 @@ zapish.inc \- Zabbix API SHell binding
 .PP
 The
 \fBzapish\&.inc\fR
-is file to include in own SH/bash scripts with few functions which makes calling zabbix API easy\&.
+is the file to include in own SH/bash scripts with few functions which make calling zabbix API easy\&.
 .PP
-It consist from few functions for:
+It consists of few functions for:
 .sp
 .RS 4
 .ie n \{\
@@ -48,7 +48,7 @@ It consist from few functions for:
 .sp -1
 .IP \(bu 2.3
 .\}
-construct json string fields like string, numeric and arrays
+construct JSON string fields like string, numeric and arrays
 .RE
 .sp
 .RS 4
@@ -72,7 +72,7 @@ function which is used to call zabbix API
 .sp -1
 .IP \(bu 2.3
 .\}
-json return values parser/extractor
+JSON return values parser/extractor
 .RE
 .sp
 .RS 4
@@ -90,12 +90,12 @@ function which reads
 configuration file or initialize if it does not exist
 .RE
 .PP
-At the moment zapish\&.inc is not fully POSIX SH compliant because it uses in few places "local" keyword to define functions local variables\&. However my intention is to rewrite it to make it fully POSIX SH compliant code\&.
+At the moment zapish\&.inc is not fully POSIX SH compliant because it uses in few places "local" keyword to define functions local variables\&. However, the intention is to rewrite it to make it fully POSIX SH compliant code\&.
 .SH "FUNCTIONS"
 .PP
 \fBjson_array_num\fR
 .RS 4
-This function prints string in format of the json table of numbers\&.
+This function prints string in the format of the JSON table of numbers\&.
 .sp
 \fBjson_array_num\fR
 "array_name" num1 [[num2] \&.\&.\&.] ""
@@ -103,7 +103,7 @@ This function prints string in format of the json table of numbers\&.
 .PP
 \fBjson_array_str\fR
 .RS 4
-This function prints string in format of the json table of strings\&.
+This function prints string in the format of the JSON table of strings\&.
 .sp
 \fBjson_array_str\fR
 "array_name" "str1" [["str2"] \&.\&.\&.] ""
@@ -125,11 +125,11 @@ TBD\&.
 .RE
 .PP
 \fBNOTE:\fR
-Last argument of all above functions must be empty string ("")\&.
+Last argument of all above functions must be empty the string ("")\&.
 .PP
 \fBzabbix_api\fR
 .RS 4
-Main zapish function used to call any zabbix API\&. This function expect only one parameter in which should be
+The main zapish function used to call any zabbix API\&. This function expects only one parameter in which should be
 .RE
 .SH "CONFIGURATION"
 .PP
@@ -154,13 +154,13 @@ API function\&.
 The
 \fB~/\&.zapish\&.rc\fR
 file is generated automatically if it does not exist by any script which includes
-\fBzapish\&.inc\fR\&. It will prompt to enter username, password and zabbix API gateway URL\&. If authentication will be correct generated authentication token hash and API gateway URL will be stored in
+\fBzapish\&.inc\fR\&. It will prompt to enter the username, password and the zabbix API gateway URL\&. If authentication will be correct generated authentication token hash and API gateway URL will be stored in
 \fB~/\&.zapish\&.rc\fR\&.
 .SH "FILES"
 .PP
 \fB/usr/libexec/zapish\&.inc\fR
 .RS 4
-Default location of the
+The default location of the
 \fBzapish\&.inc\fR
 include file\&.
 .RE
@@ -170,7 +170,7 @@ include file\&.
 .nr an-no-space-flag 1
 .nr an-break-flag 1
 .br
-.B Table\ \&1.\ \& The zapish\&.inc functions may exits with the following exit codes:
+.B Table\ \&1.\ \& The zapish\&.inc functions may exit with the following exit codes:
 .TS
 allbox tab(:);
 cB lB.

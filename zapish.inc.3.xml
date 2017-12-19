@@ -40,16 +40,16 @@ the GNU General Public License Version 2.
   <refsect1 id="description">
     <title>DESCRIPTION</title>
     <para>
-       The <command>zapish.inc</command> is file to include in own SH/bash
-       scripts with few functions which makes calling zabbix API easy.
+       The <command>zapish.inc</command> is the file to include in own
+       SH/bash scripts with few functions which make calling zabbix API easy.
     </para>
     <para>
-       It consist from few functions for:
+       It consists of few functions for:
     </para>
     <itemizedlist>
       <listitem>
         <para>
-          construct json string fields like string, numeric and arrays
+          construct JSON string fields like string, numeric and arrays
           </para>
       </listitem>
       <listitem>
@@ -60,7 +60,7 @@ the GNU General Public License Version 2.
       </listitem>
       <listitem>
         <para>
-          json return values parser/extractor
+          JSON return values parser/extractor
         </para>
       </listitem>
       <listitem>
@@ -74,7 +74,7 @@ the GNU General Public License Version 2.
     <para>
       At the moment zapish.inc is not fully POSIX SH compliant because it
       uses in few places "local" keyword to define functions local
-      variables. However my intention is to rewrite it to make it fully
+      variables. However, the intention is to rewrite it to make it fully
       POSIX SH compliant code.
     </para>
   </refsect1>
@@ -87,7 +87,7 @@ the GNU General Public License Version 2.
         </term>
         <listitem>
           <para>
-            This function prints string in format of the json table of numbers.
+            This function prints string in the format of the JSON table of numbers.
           </para>
           <para><command>json_array_num</command> "array_name" num1 [[num2] ...] ""
           </para>
@@ -99,7 +99,7 @@ the GNU General Public License Version 2.
         </term>
         <listitem>
           <para>
-            This function prints string in format of the json table of strings.
+            This function prints string in the format of the JSON table of strings.
           </para>
           <para><command>json_array_str</command> "array_name" "str1" [["str2"] ...] ""
           </para>
@@ -130,15 +130,15 @@ the GNU General Public License Version 2.
         </listitem>
       </varlistentry>
       <para><command>NOTE:</command>
-      Last argument of all above functions must be empty string ("").</para>
+      Last argument of all above functions must be empty the string ("").</para>
       <varlistentry>
         <term>
           <option>zabbix_api</option>
         </term>
         <listitem>
           <para>
-            Main zapish function used to call any zabbix API. This function
-            expect only one parameter in which should be
+            The main zapish function used to call any zabbix API. This function
+            expects only one parameter in which should be
           </para>
         </listitem>
       </varlistentry>
@@ -173,8 +173,8 @@ the GNU General Public License Version 2.
     <para>
       The <command>~/.zapish.rc</command> file is generated automatically if
       it does not exist by any script which includes
-      <command>zapish.inc</command>. It will prompt to enter username,
-      password and zabbix API gateway URL. If authentication will be
+      <command>zapish.inc</command>. It will prompt to enter the username,
+      password and the zabbix API gateway URL. If authentication will be
       correct generated authentication token hash and API gateway URL will
       be stored in <command>~/.zapish.rc</command>.
     </para>
@@ -187,7 +187,7 @@ the GNU General Public License Version 2.
           <command>/usr/libexec/zapish.inc</command>
         </term>
         <listitem>
-          <para>Default location of the <command>zapish.inc</command> include file.</para>
+          <para>The default location of the <command>zapish.inc</command> include file.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -196,7 +196,7 @@ the GNU General Public License Version 2.
     <title>EXIT CODES</title>
     <table frame="all" pgwide="0" align="left" shortentry="1">
       <title>
-        The <command>zapish.inc</command> functions may exits with the
+        The <command>zapish.inc</command> functions may exit with the
         following exit codes:
       </title>
       <tgroup cols="2" colsep="1" rowsep="1">
