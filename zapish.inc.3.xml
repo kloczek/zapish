@@ -6,21 +6,24 @@ This program is free software, distributed under the terms of
 the GNU General Public License Version 2.
 -->
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<refentry id="zapish.inc.3">
-  <info>
-    <title>GNU General Public License Version 2</title>
+<refentry>
+  <refentryinfo>
+    <title>zapish.inc Manual</title>
+    <productname>zapish</productname>
     <copyright>
       <year>2017</year>
-      <holder>Tomasz Kłoczko</holder>
     </copyright>
-  </info>
-  <refentryinfo>
-    <author>
-      <firstname>Tomasz</firstname>
-      <surname>Kłoczko</surname>
-      <contrib>Creation, 2017</contrib>
-      <ulink url="mailto:kloczek@pkgs.fedoraproject.org"/>
-    </author>
+    <authorgroup>
+      <author>
+        <firstname>Tomasz</firstname>
+        <surname>Kłoczko</surname>
+        <affiliation>
+          <address>
+            <email>kloczek@fedoraproject.org</email>
+          </address>
+        </affiliation>
+      </author>
+    </authorgroup>
   </refentryinfo>
   <refmeta>
     <refentrytitle>zapish.inc</refentrytitle>
