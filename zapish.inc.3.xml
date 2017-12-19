@@ -30,7 +30,7 @@ the GNU General Public License Version 2.
   </refmeta>
   <refnamediv id="name">
     <refname>zapish.inc</refname>
-    <refpurpose>Zabbix API SH interface</refpurpose>
+    <refpurpose>Zabbix API SHell binding</refpurpose>
   </refnamediv>
   <refsynopsisdiv id="synopsis">
     <cmdsynopsis>
@@ -40,7 +40,42 @@ the GNU General Public License Version 2.
   <refsect1 id="description">
     <title>DESCRIPTION</title>
     <para>
-      The <command>zapish.inc</command> file provides include file which allows easy call Zabbix API functions from POSIX SH scripts.
+       The <command>zapish.inc</command> is the file to include in own
+       SH/bash scripts with few functions which make calling zabbix API easy.
+    </para>
+    <para>
+       It consists of few functions for:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          construct JSON string fields like string, numeric and arrays
+          </para>
+      </listitem>
+      <listitem>
+        <para>
+          the main <command>zabbix_api</command> function which is used
+          to call zabbix API
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          JSON return values parser/extractor
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          the <command>zapish_init</command> function which reads
+          <command>~/.zapish.rc</command> configuration file or initialize
+          if it does not exist
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      At the moment zapish.inc is not fully POSIX SH compliant because it
+      uses in few places "local" keyword to define functions local
+      variables. However, the intention is to rewrite it to make it fully
+      POSIX SH compliant code.
     </para>
   </refsect1>
   <refsect1 id="options">
@@ -48,7 +83,31 @@ the GNU General Public License Version 2.
     <variablelist remap="IP">
       <varlistentry>
         <term>
-          <option>json_array_num()</option>
+          <option>json_array_num</option>
+        </term>
+        <listitem>
+          <para>
+            This function prints string in the format of the JSON table of numbers.
+          </para>
+          <para><command>json_array_num</command> "array_name" num1 [[num2] ...] ""
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>json_array_str</option>
+        </term>
+        <listitem>
+          <para>
+            This function prints string in the format of the JSON table of strings.
+          </para>
+          <para><command>json_array_str</command> "array_name" "str1" [["str2"] ...] ""
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>json_list</option>
         </term>
         <listitem>
           <para>TBD.</para>
@@ -56,7 +115,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          <option>json_array_str()</option>
+          <option>json_num</option>
         </term>
         <listitem>
           <para>TBD.</para>
@@ -64,34 +123,23 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          <option>json_list()</option>
+          <option>json_str</option>
         </term>
         <listitem>
           <para>TBD.</para>
         </listitem>
       </varlistentry>
+      <para><command>NOTE:</command>
+      Last argument of all above functions must be empty the string ("").</para>
       <varlistentry>
         <term>
-          <option>json_num()</option>
+          <option>zabbix_api</option>
         </term>
         <listitem>
-          <para>TBD.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>
-          <option>json_str()</option>
-        </term>
-        <listitem>
-          <para>TBD.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>
-          <option>zabbix_api()</option>
-        </term>
-        <listitem>
-          <para>Main zapish function used to call any zabbix API. This function expect a parametr needs to be passed </para>
+          <para>
+            The main zapish function used to call any zabbix API. This function
+            expects only one parameter in which should be
+          </para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -99,8 +147,36 @@ the GNU General Public License Version 2.
   <refsect1 id="configuration">
     <title>CONFIGURATION</title>
     <para>
-      The <command>zapish.inc</command> functions uses following configuration variables in
-      <filename>~/.zapish.rc</filename>:
+      The <command>zapish.inc</command> functions uses following
+      configuration variables in <command>~/.zapish.rc</command>:
+    </para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <option>zapish_url</option>
+        </term>
+        <listitem>
+          <para>URL of the zabbix API gateway used by
+          <command>zapish.inc</command>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          <option>zapish_auth</option>
+        </term>
+        <listitem>
+          <para>Zabbix API authentication token generated by
+          <command>user.login</command> API function.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>
+      The <command>~/.zapish.rc</command> file is generated automatically if
+      it does not exist by any script which includes
+      <command>zapish.inc</command>. It will prompt to enter the username,
+      password and the zabbix API gateway URL. If authentication will be
+      correct generated authentication token hash and API gateway URL will
+      be stored in <command>~/.zapish.rc</command>.
     </para>
   </refsect1>
   <refsect1 id="files">
@@ -108,10 +184,10 @@ the GNU General Public License Version 2.
     <variablelist>
       <varlistentry>
         <term>
-          <filename>/usr/libexec/zapish.inc</filename>
+          <command>/usr/libexec/zapish.inc</command>
         </term>
         <listitem>
-          <para>Default location of the zapish.inc include file.</para>
+          <para>The default location of the <command>zapish.inc</command> include file.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -119,7 +195,10 @@ the GNU General Public License Version 2.
   <refsect1 id="exit_codes">
     <title>EXIT CODES</title>
     <table frame="all" pgwide="0" align="left" shortentry="1">
-      <title>The <command>zapish.inc</command> functions may exits with the following exit codes:</title>
+      <title>
+        The <command>zapish.inc</command> functions may exit with the
+        following exit codes:
+      </title>
       <tgroup cols="2" colsep="1" rowsep="1">
         <colspec align="center"/>
         <colspec align="left"/>
@@ -140,7 +219,7 @@ the GNU General Public License Version 2.
           </row>
           <row>
             <entry>2</entry>
-            <entry>zapish initialization successfull (created ~/.zapish.rc)</entry>
+            <entry>zapish initialization successfull (created <command>~/.zapish.rc</command>)</entry>
           </row>
           <row>
             <entry>3</entry>
@@ -156,7 +235,8 @@ the GNU General Public License Version 2.
   </refsect1>
   <refsect1 id="see_also">
     <title>SEE ALSO</title>
-    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+    <para><citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+      <citerefentry><refentrytitle>bash</refentrytitle><manvolnum>1</manvolnum></citerefentry>.
     </para>
     <para>
       <ulink url="https://github.com/kloczek/zapish/"/>
