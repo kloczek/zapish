@@ -85,7 +85,7 @@ json_error() {
 
 zabbix_api() {
 	if [ -z "$1" ]; then
-		echo "zabbix_api() function expects list of parameters describing API call"
+		echo "zabbix_api() function expects a list of parameters describing API call"
 		exit 3
 	fi
 
@@ -103,21 +103,21 @@ zabbix_api() {
 }
 
 #====================================
-# Chek and initialize authentication
+# Check and initialize authentication
 #====================================
 
 zapish_init() {
-	read -p "Enter URL of the zabbix API gateway [http://localhost/api_jsonrpc.php]: " zapish_url
+	read -p "Enter URL of the Zabbix API gateway [http://localhost/api_jsonrpc.php]: " zapish_url
 	if [ ! -n "$zapish_url" ]; then
 		zapish_url="http://localhost/api_jsonrpc.php"
 	fi
 
-	read -p "Enter zabbix API accout name [Admin]: " zapish_user
+	read -p "Enter Zabbix API account name [Admin]: " zapish_user
 	if [ ! -n "$zapish_user" ]; then
 		zapish_user="Admin"
 	fi
 
-	read -p "Enter zabbix API account password [zabbix]: " zapish_pwd
+	read -p "Enter Zabbix API account password [zabbix]: " zapish_pwd
 	if [ ! -n "$zapish_pwd" ]; then
 		zapish_pwd="zabbix"
 	fi
@@ -146,8 +146,8 @@ zapish_init() {
 	echo zapish_url=\"$zapish_url\"	> ~/.zapish.rc
 	echo zapish_auth=$(json_get "${result}" .result) >> ~/.zapish.rc
 	chmod 600 ~/.zapish.rc
-	echo "Zabbix API authentication sucessfull. No Zabbix API call."
-	echo "zapish authentication tocken has been stored in ~/.zapish.rc"
+	echo "Zabbix API authentication successful. No Zabbix API call."
+	echo "zapish authentication token has been stored in ~/.zapish.rc"
 	exit 2
 }
 
