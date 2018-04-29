@@ -6,6 +6,7 @@ This program is free software, distributed under the terms of
 the GNU General Public License Version 2.
 -->
 <!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!--*- Mode: nxml; nxml-child-indent: 2; indent-tabs-mode: nil -*-->
 <refentry>
   <refentryinfo>
     <title>zapish.inc Manual</title>
@@ -205,12 +206,11 @@ the GNU General Public License Version 2.
   </refsect1>
   <refsect1 id="exit_codes">
     <title>EXIT CODES</title>
-    <table frame="all" pgwide="0" align="left" shortentry="1">
+    <table>
       <title>
-        The <command>zapish.inc</command> functions may exit with the
-        following exit codes:
+        Functions defined in <command>zapish.inc</command> may exit with the following exit codes:
       </title>
-      <tgroup cols="2" colsep="1" rowsep="1">
+      <tgroup cols="2" align="left" colsep="1" rowsep="1">
         <colspec align="center"/>
         <colspec align="left"/>
         <thead>
@@ -222,7 +222,7 @@ the GNU General Public License Version 2.
         <tbody>
           <row>
             <entry>0</entry>
-            <entry>success</entry>
+            <entry>Success</entry>
           </row>
           <row>
             <entry>1</entry>
@@ -230,15 +230,17 @@ the GNU General Public License Version 2.
           </row>
           <row>
             <entry>2</entry>
-            <entry>zapish initialization successfull (created <command>~/.zapish.rc</command>)</entry>
+            <entry>
+              First use of zapish. Initialization has been done and <command>~/.zapish.rc</command> file has been created sucessfully
+            </entry>
           </row>
           <row>
             <entry>3</entry>
-            <entry>zabbix_api() called without arguments</entry>
+            <entry>The zabbix_api() called without arguments</entry>
           </row>
           <row>
             <entry>4</entry>
-            <entry>zabbix_api() call error</entry>
+            <entry>The zabbix_api() call error</entry>
           </row>
         </tbody>
       </tgroup>
