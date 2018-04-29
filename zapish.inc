@@ -3,7 +3,7 @@
 # This program is free software, distributed under the terms of
 # the GNU General Public License Version 2.
 #
-# Copyright (C) 2017 Tomasz Kłoczko <kloczek@fedoraproject.org>
+# Copyright (C) 2017-2018 Tomasz Kłoczko <kloczek@fedoraproject.org>
 #
 
 zapish_url=""
