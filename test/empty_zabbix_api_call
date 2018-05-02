@@ -1,5 +1,12 @@
 #!/bin/sh
 
-. ../zapish.inc
+if [ -e ../zapish.inc ]; then
+	. ../zapish.inc
+elif [ -e /usr/libexec/zapish/zapish.inc ]; then
+	. /usr/libexec/zapish/zapish.inc
+else
+	echo "No zapish.inc found"
+	exit 1
+fi
 
 zabbix_api
