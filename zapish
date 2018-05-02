@@ -81,6 +81,8 @@ zapish_help() {
 	zapish_delete	help
 	zapish_export	help
 	zapish_get	help
+	echo "zapish help"
+	echo
 	zapish_import	help
 	zapish_list	help
 	zapish_set	help
