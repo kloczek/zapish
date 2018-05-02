@@ -23,7 +23,8 @@ zapish_add() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish add [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo "zapish add "
+			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
 		esac
@@ -36,7 +37,8 @@ zapish_delete() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish delete [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo "zapish delete "
+			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
 		esac
@@ -49,7 +51,8 @@ zapish_dump() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish dump template '<template_name>'"
+			echo "zapish dump template '<template_name>' [-o <file_name>]"
+			# TODO: ?
 			echo
 			;;
 		esac
@@ -63,6 +66,7 @@ zapish_get() {
 		case "${1}" in
 		"help" )
 			echo "zapish get "
+			# TODO: [host <interface|description>|template <description|macros>]
 			echo
 			;;
 		esac
@@ -87,7 +91,8 @@ zapish_import() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish import [template|regexp] <file>"
+			echo "zapish import "
+			# TODO: [template|regexp] <file>"
 			echo
 			;;
 		esac
@@ -100,7 +105,8 @@ zapish_list() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish list [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo "zapish list "
+			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
 		esac
@@ -114,6 +120,7 @@ zapish_set() {
 		case "${1}" in
 		"help" )
 			echo "zapish set"
+			# TODO: [action|host <interface|macro|viseable-name>]
 			echo
 			;;
 		esac
@@ -126,7 +133,8 @@ zapish_show() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish show [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo "zapish show "
+			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
 		esac
