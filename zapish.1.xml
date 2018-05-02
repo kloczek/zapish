@@ -72,7 +72,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>export</command> <option></option>
+          zapish <command>export</command> <option/>
         </term>
         <listitem>
           <para>
@@ -81,7 +81,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>get</command> <option></option>
+          zapish <command>get</command> <option/>
         </term>
         <listitem>
           <para>
@@ -90,7 +90,16 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>import</command> <option></option>
+          zapish <command>help</command> <option/>
+        </term>
+        <listitem>
+          <para>Displays a help message.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>import</command> <option/>
         </term>
         <listitem>
           <para>
@@ -99,7 +108,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>list</command> <option></option>
+          zapish <command>list</command> <option/>
         </term>
         <listitem>
           <para>
@@ -108,7 +117,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>set</command> <option></option>
+          zapish <command>set</command> <option/>
         </term>
         <listitem>
           <para>
@@ -117,7 +126,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>show</command> <option></option>
+          zapish <command>show</command> <option/>
         </term>
         <listitem>
           <para>
