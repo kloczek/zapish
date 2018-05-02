@@ -2,12 +2,12 @@
 .\"     Title: zapish
 .\"    Author: Tomasz Kłoczko <kloczek@fedoraproject.org>
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 05/02/2018
+.\"      Date: 05/03/2018
 .\"    Manual: Zabbix API SHell command processor
 .\"    Source: zapish
 .\"  Language: English
 .\"
-.TH "ZAPISH" "1" "05/02/2018" "zapish" "Zabbix API SHell command proce"
+.TH "ZAPISH" "1" "05/03/2018" "zapish" "Zabbix API SHell command proce"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -30,8 +30,28 @@
 .SH "NAME"
 zapish \- Zabbix API SHell command processor
 .SH "SYNOPSIS"
-.HP \w'\fBzapish\fR\ 'u
-\fBzapish\fR
+.HP \w'\ 'u
+.PP
+zapish
+\fBcreate\fR
+.PP
+zapish
+\fBdelete\fR
+.PP
+zapish
+\fBexport\fR
+.PP
+zapish
+\fBget\fR
+.PP
+zapish
+\fBhelp\fR
+.PP
+zapish
+\fBimport\fR
+.PP
+zapish
+\fBupdate\fR
 .SH "DESCRIPTION"
 .PP
 The
@@ -40,6 +60,14 @@ is the SH script which provides useful interracting with zabbix over CLI\&.
 .PP
 Thist sctipt uses zapish\&.inc\&. It is tool and demonstration how to use zapish (Zabbix API SHell binding)\&.
 .SH "COMMANDS"
+.PP
+zapish \fBacknowledge\fR
+.RS 4
+.RE
+.PP
+zapish \fBcreate\fR
+.RS 4
+.RE
 .PP
 zapish \fBdelete\fR
 .RS 4
@@ -62,15 +90,7 @@ zapish \fBimport\fR
 .RS 4
 .RE
 .PP
-zapish \fBlist\fR
-.RS 4
-.RE
-.PP
-zapish \fBset\fR
-.RS 4
-.RE
-.PP
-zapish \fBshow\fR
+zapish \fBupdate\fR
 .RS 4
 .RE
 .SH "CONFIGURATION"

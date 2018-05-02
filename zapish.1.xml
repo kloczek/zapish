@@ -46,7 +46,13 @@ the GNU General Public License Version 2.
   </refnamediv>
   <refsynopsisdiv id="synopsis">
     <cmdsynopsis>
-      <command>zapish</command>
+      <para>zapish <command>create</command></para>
+      <para>zapish <command>delete</command></para>
+      <para>zapish <command>export</command></para>
+      <para>zapish <command>get</command></para>
+      <para>zapish <command>help</command></para>
+      <para>zapish <command>import</command></para>
+      <para>zapish <command>update</command></para>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1 id="description">
@@ -61,6 +67,24 @@ the GNU General Public License Version 2.
   <refsect1 id="options">
     <title>COMMANDS</title>
     <variablelist remap="IP">
+      <varlistentry>
+        <term>
+          zapish <command>acknowledge</command>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>create</command>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
       <varlistentry>
         <term>
           zapish <command>delete</command>
@@ -108,25 +132,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>list</command> <option/>
-        </term>
-        <listitem>
-          <para>
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>
-          zapish <command>set</command> <option/>
-        </term>
-        <listitem>
-          <para>
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>
-          zapish <command>show</command> <option/>
+          zapish <command>update</command> <option/>
         </term>
         <listitem>
           <para>

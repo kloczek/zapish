@@ -12,135 +12,129 @@ if [ -e ./zapish.inc ]; then
 elif [ -e /usr/libexec/zapish/zapish.inc ]; then
 	. /usr/libexec/zapish/zapish.inc
 else
-	echo "No zapish.inc found"
+	echo "Not found /usr/libexec/zapish/zapish.inc"
 	exit 1
 fi
+
 #---------------------------------------------
 # Main commands
 
 # delete
-zapish_add() {
+zapish_acknowledge() {
 	while [ $# -gt 0 ]; do
-		case "${1}" in
+		cmd="${1}"
+		shift
+		case "${cmd}" in
 		"help" )
-			echo "  zapish add "
-			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
+			echo "  zapish acknowledge "
+			# TODO: [event]
 			echo
 			;;
 		esac
+	done
+}
+
+# delete
+zapish_create() {
+	while [ $# -gt 0 ]; do
+		cmd="${1}"
 		shift
+		case "${cmd}" in
+		"help" )
+			echo "  zapish create "
+			# TODO: [action|screen|slideshow|group|item|host|template|user]
+			echo
+			;;
+		esac
 	done
 }
 
 # delete
 zapish_delete() {
 	while [ $# -gt 0 ]; do
-		case "${1}" in
+		cmd="${1}"
+		shift
+		case "${cmd}" in
 		"help" )
 			echo "  zapish delete "
-			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
+			# TODO: [action|screen|slideshow|group|item|host|template|user]
 			echo
 			;;
 		esac
-		shift
 	done
 }
 
 # dump
 zapish_export() {
 	while [ $# -gt 0 ]; do
-		case "${1}" in
+		cmd="${1}"
+		shift
+		case "${cmd}" in
 		"help" )
 			echo "  zapish export template '<template_name>' [-o <file_name>]"
-			# TODO: ?
+			# TODO: [template]
 			echo
 			;;
 		esac
-		shift
 	done
 }
 
 # get
 zapish_get() {
 	while [ $# -gt 0 ]; do
-		case "${1}" in
+		cmd="${1}"
+		shift
+		case "${cmd}" in
 		"help" )
 			echo "  zapish get "
 			# TODO: [host <interface|description>|template <description|macros>]
 			echo
 			;;
 		esac
-		shift
 	done
 }
 
 # help
 zapish_help() {
 	echo "Usage:"
-	zapish_add	help
-	zapish_delete	help
-	zapish_export	help
-	zapish_get	help
+	zapish_acknowledge	help
+	zapish_create		help
+	zapish_delete		help
+	zapish_export		help
+	zapish_get		help
 	echo "  zapish help"
 	echo
-	zapish_import	help
-	zapish_list	help
-	zapish_set	help
-	zapish_show	help
+	zapish_import		help
+	zapish_update		help
 }
+
 # import
 zapish_import() {
 	while [ $# -gt 0 ]; do
-		case "${1}" in
+		cmd="${1}"
+		shift
+		case "${cmd}" in
 		"help" )
 			echo "  zapish import "
 			# TODO: [template|regexp] <file>"
 			echo
 			;;
 		esac
-		shift
 	done
 }
 
-# list
-zapish_list() {
+# update
+zapish_update() {
 	while [ $# -gt 0 ]; do
-		case "${1}" in
-		"help" )
-			echo "  zapish list "
-			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
-			echo
-			;;
-		esac
+		cmd="${1}"
 		shift
-	done
-}
-
-# set
-zapish_set() {
-	while [ $# -gt 0 ]; do
-		case "${1}" in
+		case "${cmd}" in
 		"help" )
-			echo "  zapish set"
+			echo "  zapish update"
 			# TODO: [action|host <interface|macro|viseable-name>]
 			echo
 			;;
 		esac
-		shift
-	done
-}
-
-# show
-zapish_show() {
-	while [ $# -gt 0 ]; do
-		case "${1}" in
-		"help" )
-			echo "  zapish show "
-			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
-			echo
-			;;
-		esac
-		shift
 	done
 }
 
@@ -153,8 +147,12 @@ if [ $# = 0 ]; then
 fi
 
 while [ $# -gt 0 ]; do
-	case "${1}" in
-	"add" )
+	cmd="${1}"
+	shift
+	case "${cmd}" in
+	"acknowledge" )
+		;;
+	"create" )
 		;;
 	"delete" )
 		;;
@@ -165,9 +163,10 @@ while [ $# -gt 0 ]; do
 	"help" )
 		zapish_help
 		;;
-	"set" )
+	"update" )
 		;;
-	"show" )
+	* )
+		zapish_help
 		;;
 	esac
 	shift
