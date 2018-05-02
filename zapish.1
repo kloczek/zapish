@@ -1,0 +1,157 @@
+'\" t
+.\"     Title: zapish
+.\"    Author: Tomasz Kłoczko <kloczek@fedoraproject.org>
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: 05/02/2018
+.\"    Manual: Zabbix API SHell command processor
+.\"    Source: zapish
+.\"  Language: English
+.\"
+.TH "ZAPISH" "1" "05/02/2018" "zapish" "Zabbix API SHell command proce"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+zapish \- Zabbix API SHell command processor
+.SH "SYNOPSIS"
+.HP \w'\fBzapish\fR\ 'u
+\fBzapish\fR
+.SH "DESCRIPTION"
+.PP
+The
+\fBzapish\fR
+is the SH script which provides useful interracting with zabbix over CLI\&.
+.PP
+Thist sctipt uses zapish\&.inc\&. It is tool and demonstration how to use zapish (Zabbix API SHell binding)\&.
+.SH "COMMANDS"
+.PP
+zapish \fBdelete\fR
+.RS 4
+.RE
+.PP
+zapish \fBdump\fR
+.RS 4
+.RE
+.PP
+zapish \fBget\fR
+.RS 4
+.RE
+.PP
+zapish \fBimport\fR
+.RS 4
+.RE
+.PP
+zapish \fBlist\fR
+.RS 4
+.RE
+.PP
+zapish \fBset\fR
+.RS 4
+.RE
+.PP
+zapish \fBshow\fR
+.RS 4
+.RE
+.SH "CONFIGURATION"
+.PP
+The
+\fBzapish\&.inc\fR
+functions uses following configuration variables in
+\fB~/\&.zapish\&.rc\fR:
+.PP
+This scrip use
+\fB~/\&.zapish\&.rc\fR
+file which is generated on first use zapish\&.
+.SH "FILES"
+.PP
+\fB/usr/libexec/zapish/zapish\&.inc\fR
+.RS 4
+The default location of the
+\fBzapish\&.inc\fR
+include file\&.
+.RE
+.SH "EXIT CODES"
+.sp
+.it 1 an-trap
+.nr an-no-space-flag 1
+.nr an-break-flag 1
+.br
+.B Table\ \&1.\ \& Functions defined in zapish\&.inc may exit with the following exit codes:
+.TS
+allbox tab(:);
+cB lB.
+T{
+Exit code
+T}:T{
+Description
+T}
+.T&
+c l
+c l
+c l
+c l
+c l.
+T{
+0
+T}:T{
+Success
+T}
+T{
+1
+T}:T{
+Zabbix API authentication error
+T}
+T{
+2
+T}:T{
+First use of zapish\&. Initialization has been done and \fB~/\&.zapish\&.rc\fR file has been created sucessfully
+T}
+T{
+3
+T}:T{
+The zabbix_api() called without arguments
+T}
+T{
+4
+T}:T{
+The zabbix_api() call error
+T}
+.TE
+.sp 1
+.SH "SEE ALSO"
+.PP
+\fBzapish.inc\fR(3),
+\fBsh\fR(1),
+\fBbash\fR(1)\&.
+.PP
+\m[blue]\fB\%https://github.com/kloczek/zapish/\fR\m[]
+.PP
+\m[blue]\fB\%https://www.zabbix.com/documentation/3.4/manual/api/\fR\m[]
+.SH "AUTHOR"
+.PP
+\fBTomasz Kłoczko\fR <\&kloczek@fedoraproject\&.org\&>
+.RS 4
+.RE
+.RS 4
+Author
+.RE
+.SH "COPYRIGHT"
+.br
+Copyright \(co 2018
+.br

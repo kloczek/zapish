@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017-2018 Tomasz Kłoczko <kloczek@fedoraproject.org>
+
+This program is free software, distributed under the terms of
+the GNU General Public License Version 2.
+-->
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!--*- Mode: nxml; nxml-child-indent: 2; indent-tabs-mode: nil -*-->
+<refentry>
+  <refentryinfo>
+    <title>zapish - Zabbix API SHell command processor</title>
+    <productname>zapish</productname>
+    <copyright>
+      <year>2018</year>
+    </copyright>
+    <authorgroup>
+      <author>
+        <personname>
+          <firstname>Tomasz</firstname>
+          <surname>Kłoczko</surname>
+          <affiliation>
+            <address>
+              <email>kloczek@fedoraproject.org</email>
+            </address>
+          </affiliation>
+        </personname>
+        <personblurb>
+          kloczek
+        </personblurb>
+        <contrib>
+          Author
+        </contrib>
+      </author>
+    </authorgroup>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle>zapish</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class="sectdesc">Zabbix API SHell command processor</refmiscinfo>
+    <refmiscinfo class="source">zapish</refmiscinfo>
+  </refmeta>
+  <refnamediv id="name">
+    <refname>zapish</refname>
+    <refpurpose>Zabbix API SHell command processor</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv id="synopsis">
+    <cmdsynopsis>
+      <command>zapish</command>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1 id="description">
+    <title>DESCRIPTION</title>
+    <para>
+       The <command>zapish</command> is the SH script which provides useful interracting with zabbix over CLI.
+    </para>
+    <para>
+      Thist sctipt uses zapish.inc. It is tool and demonstration how to use zapish (Zabbix API SHell binding).
+    </para>
+  </refsect1>
+  <refsect1 id="options">
+    <title>COMMANDS</title>
+    <variablelist remap="IP">
+      <varlistentry>
+        <term>
+          zapish <command>delete</command>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>dump</command> <option></option>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>get</command> <option></option>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>import</command> <option></option>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>list</command> <option></option>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>set</command> <option></option>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          zapish <command>show</command> <option></option>
+        </term>
+        <listitem>
+          <para>
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="configuration">
+    <title>CONFIGURATION</title>
+    <para>
+      The <command>zapish.inc</command> functions uses following
+      configuration variables in <command>~/.zapish.rc</command>:
+    </para>
+    <para>
+      This scrip use <command>~/.zapish.rc</command> file which is generated on first use zapish.
+    </para>
+  </refsect1>
+  <refsect1 id="files">
+    <title>FILES</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <command>/usr/libexec/zapish/zapish.inc</command>
+        </term>
+        <listitem>
+          <para>The default location of the <command>zapish.inc</command> include file.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="exit_codes">
+    <title>EXIT CODES</title>
+    <table>
+      <title>
+        Functions defined in <command>zapish.inc</command> may exit with the following exit codes:
+      </title>
+      <tgroup cols="2" align="left" colsep="1" rowsep="1">
+        <colspec align="center"/>
+        <colspec align="left"/>
+        <thead>
+          <row>
+            <entry>Exit code</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>0</entry>
+            <entry>Success</entry>
+          </row>
+          <row>
+            <entry>1</entry>
+            <entry>Zabbix API authentication error</entry>
+          </row>
+          <row>
+            <entry>2</entry>
+            <entry>
+              First use of zapish. Initialization has been done and <command>~/.zapish.rc</command> file has been created sucessfully
+            </entry>
+          </row>
+          <row>
+            <entry>3</entry>
+            <entry>The zabbix_api() called without arguments</entry>
+          </row>
+          <row>
+            <entry>4</entry>
+            <entry>The zabbix_api() call error</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refsect1>
+  <refsect1 id="see_also">
+    <title>SEE ALSO</title>
+    <para><citerefentry><refentrytitle>zapish.inc</refentrytitle><manvolnum>3</manvolnum></citerefentry>,
+      <citerefentry><refentrytitle>sh</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+      <citerefentry><refentrytitle>bash</refentrytitle><manvolnum>1</manvolnum></citerefentry>.
+    </para>
+    <para>
+      <ulink url="https://github.com/kloczek/zapish/"/>
+    </para>
+    <para>
+      <ulink url="https://www.zabbix.com/documentation/3.4/manual/api/"/>
+    </para>
+  </refsect1>
+</refentry>

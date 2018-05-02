@@ -1,0 +1,164 @@
+#!/bin/sh
+#
+# zapish - Zabbix API SHell command processor
+# This program is free software, distributed under the terms of
+# the GNU General Public License Version 2.
+#
+# Copyright (C) 2017-2018 Tomasz Kłoczko <kloczek@fedoraproject.org>
+#
+
+if [ -e ./zapish.inc ]; then
+	. ./zapish.inc
+elif [ -e /usr/libexec/zapish/zapish.inc ]; then
+	. /usr/libexec/zapish/zapish.inc
+else
+	echo "No zapish.inc found"
+	exit 1
+fi
+#---------------------------------------------
+# Main commands
+
+# delete
+zapish_add() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish add [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# delete
+zapish_delete() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish delete [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# dump
+zapish_dump() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish dump template '<template_name>'"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# get
+zapish_get() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish get "
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# help
+zapish_help() {
+	echo "Usage:"
+	zapish_add	help
+	zapish_delete	help
+	zapish_dump	help
+	zapish_get	help
+	zapish_import	help
+	zapish_list	help
+	zapish_set	help
+	zapish_show	help
+}
+# import
+zapish_import() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish import [template|regexp] <file>"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# list
+zapish_list() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish list [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# set
+zapish_set() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish set"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+# show
+zapish_show() {
+	while [ $# -gt 0 ]; do
+		case "${1}" in
+		"help" )
+			echo "zapish show [actions|screens|slideshows|groups|items|hosts|templates|users]"
+			echo
+			;;
+		esac
+		shift
+	done
+}
+
+#---------------------------------------------
+# main()
+
+if [ $# = 0 ]; then
+	zapish_help
+	exit 1
+fi
+
+while [ $# -gt 0 ]; do
+	case "${1}" in
+	"add" )
+		;;
+	"delete" )
+		;;
+	"dump" )
+		;;
+	"get" )
+		;;
+	"help" )
+		zapish_help
+		;;
+	"set" )
+		;;
+	"show" )
+		;;
+	esac
+	shift
+done
