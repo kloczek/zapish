@@ -196,7 +196,7 @@ the GNU General Public License Version 2.
     <variablelist>
       <varlistentry>
         <term>
-          <command>/usr/libexec/zapish.inc</command>
+          <command>/usr/libexec/zapish/zapish.inc</command>
         </term>
         <listitem>
           <para>The default location of the <command>zapish.inc</command> include file.</para>

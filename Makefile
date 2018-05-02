@@ -1,6 +1,7 @@
 VERSION		= 0.99
 
 libexecdir	= /usr/libexec
+pkglibexecdir	= ${libexecdir}/zapish
 mandir		= /usr/share/man
 man3dir		= ${mandir}/man3
 
@@ -19,9 +20,9 @@ zapish.inc.3: zapish.inc.3.xml
 		-nonet http://docbook.sourceforge.net/release/xsl/current/manpages/profile-docbook.xsl $<
 
 install:
-	$(MKDIR_P) "$(DESTDIR)$(man3dir)" "$(DESTDIR)$(libexecdir)"
+	$(MKDIR_P) "$(DESTDIR)$(man3dir)" "$(DESTDIR)$(pkglibexecdir)"
 	$(INSTALL_DATA) zapish.inc.3 "$(DESTDIR)$(man3dir)"
-	$(INSTALL_DATA) zapish.inc "$(DESTDIR)$(libexecdir)"
+	$(INSTALL_DATA) zapish.inc "$(DESTDIR)$(pkglibexecdir)"
 
 dist:
         
