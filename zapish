@@ -23,7 +23,7 @@ zapish_add() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish add "
+			echo "  zapish add "
 			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
@@ -37,7 +37,7 @@ zapish_delete() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish delete "
+			echo "  zapish delete "
 			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
@@ -51,7 +51,7 @@ zapish_export() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish export template '<template_name>' [-o <file_name>]"
+			echo "  zapish export template '<template_name>' [-o <file_name>]"
 			# TODO: ?
 			echo
 			;;
@@ -65,7 +65,7 @@ zapish_get() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish get "
+			echo "  zapish get "
 			# TODO: [host <interface|description>|template <description|macros>]
 			echo
 			;;
@@ -81,7 +81,7 @@ zapish_help() {
 	zapish_delete	help
 	zapish_export	help
 	zapish_get	help
-	echo "zapish help"
+	echo "  zapish help"
 	echo
 	zapish_import	help
 	zapish_list	help
@@ -93,7 +93,7 @@ zapish_import() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish import "
+			echo "  zapish import "
 			# TODO: [template|regexp] <file>"
 			echo
 			;;
@@ -107,7 +107,7 @@ zapish_list() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish list "
+			echo "  zapish list "
 			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
@@ -121,7 +121,7 @@ zapish_set() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish set"
+			echo "  zapish set"
 			# TODO: [action|host <interface|macro|viseable-name>]
 			echo
 			;;
@@ -135,7 +135,7 @@ zapish_show() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish show "
+			echo "  zapish show "
 			# TODO: [actions|screens|slideshows|groups|items|hosts|templates|users]
 			echo
 			;;
