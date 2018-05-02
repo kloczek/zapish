@@ -72,7 +72,7 @@ the GNU General Public License Version 2.
       </varlistentry>
       <varlistentry>
         <term>
-          zapish <command>dump</command> <option></option>
+          zapish <command>export</command> <option></option>
         </term>
         <listitem>
           <para>

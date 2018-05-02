@@ -47,11 +47,11 @@ zapish_delete() {
 }
 
 # dump
-zapish_dump() {
+zapish_export() {
 	while [ $# -gt 0 ]; do
 		case "${1}" in
 		"help" )
-			echo "zapish dump template '<template_name>' [-o <file_name>]"
+			echo "zapish export template '<template_name>' [-o <file_name>]"
 			# TODO: ?
 			echo
 			;;
@@ -79,7 +79,7 @@ zapish_help() {
 	echo "Usage:"
 	zapish_add	help
 	zapish_delete	help
-	zapish_dump	help
+	zapish_export	help
 	zapish_get	help
 	zapish_import	help
 	zapish_list	help
