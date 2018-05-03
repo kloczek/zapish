@@ -64,7 +64,7 @@ zapish_delete() {
 	done
 }
 
-# dump
+# export
 zapish_export() {
 	while [ $# -gt 0 ]; do
 		cmd="${1}"
@@ -73,9 +73,27 @@ zapish_export() {
 		"help" )
 			echo "  zapish export template '<template_name>' [-o <file_name>]"
 			# TODO: [template]
-			echo
+			;;
+		"template" )
+			obj="${1}"
+			shift
+			case "${obj}" in
+			-d )
+				echo "Not implemnted yet directory"
+				;;
+			-f )
+				echo "Not implemnted yet format"
+				;;
+			-o )
+				echo "Not implemnted yet output"
+				;;
+			* )
+				;;
+			esac
 			;;
 		esac
+
+		echo
 	done
 }
 
@@ -156,7 +174,8 @@ while [ $# -gt 0 ]; do
 		;;
 	"delete" )
 		;;
-	"dump" )
+	"export" )
+		zapish_export ${*}
 		;;
 	"get" )
 		;;
