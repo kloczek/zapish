@@ -25,10 +25,10 @@ ToDo:
 * more test units and examples
 
 ------------------------------------
-## License ##
-the GNU General Public License Version 2.
+#### License ##
+The GNU General Public License Version 2.
 
-## Copyright (C) 2017 Tomasz Kłoczko <kloczek@fedoraproject.org>
+#### Copyright (C) 2017-2018 Tomasz Kłoczko <kloczek@fedoraproject.org>
 
 ------------------------------------
 Note: "zapish" pronunced in English sounds like Polish "zapisz" which means "write it down!" (as commanding)
