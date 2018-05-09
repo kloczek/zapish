@@ -13,7 +13,7 @@ It consists of few functions for:
 At the moment zapish.inc is not fully POSIX SH compliant because it uses in few places "local" keyword to define functions local variables. However, the
 intention is to rewrite it to make it fully POSIX SH compliant code.
        
-Version: (still not yet) v1.0 rc1
+Version: (still released not yet) v1.0 rc1
 
 Known bugs:
 * None
