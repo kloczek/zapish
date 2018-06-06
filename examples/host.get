@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# get template by name
+
+if [ -e ../zapish.inc ]; then
+	. ../zapish.inc
+elif [ -e /usr/libexec/zapish/zapish.inc ]; then
+	. /usr/libexec/zapish/zapish.inc
+else
+	echo "No zapish.inc found"
+	exit 1
+fi
+
+print_help() {
+	echo "Usage: host.get [OPTION] <zabbix_hostname>"
+	echo
+	echo "	-h, --help		Print this help"
+	echo
+}
+
+
+if [ $# = 0 ]; then
+	print_help
+	exit 1
+fi
+
+while [ $# -gt 0 ]; do
+	cmd="${1}"
+	shift
+	case "${cmd}" in
+	"-h" | "--help" )
+		print_help
+		;;
+	* )
+		hostname="$cmd"
+		zapish_result=$(zabbix_api host.get \
+			"$(json_list params \
+				"$(json_list "filter" \
+					"$(json_array_str "name" "$hostname" \
+						"" \
+					"")" \
+				"")" \
+				"$(json_str "output" "simple" \
+				"")" \
+			"")" \
+		)
+		;;
+	esac
+done
+
+echo "hostname \"$hostname\" hostid is $(json_get "${zapish_result}" .result[].hostid)"
