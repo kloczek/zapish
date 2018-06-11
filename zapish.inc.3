@@ -2,12 +2,12 @@
 .\"     Title: zapish.inc
 .\"    Author: Tomasz Kłoczko <kloczek@fedoraproject.org>
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 05/02/2018
+.\"      Date: 06/11/2018
 .\"    Manual: Library functions
 .\"    Source: zapish.inc
 .\"  Language: English
 .\"
-.TH "ZAPISH\&.INC" "3" "05/02/2018" "zapish\&.inc" "Library functions"
+.TH "ZAPISH\&.INC" "3" "06/11/2018" "zapish\&.inc" "Library functions"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -93,10 +93,13 @@ configuration file or initialize if it does not exist
 At the moment zapish\&.inc is not fully POSIX SH compliant because it uses in few places "local" keyword to define functions local variables\&. However, the intention is to rewrite it to make it fully POSIX SH compliant code\&.
 .SH "FUNCTIONS"
 .PP
+\fBNOTE:\fRBelow all json_* functions as last argument must have empty string ("")\&.
+.PP
 \fBjson_array_num\fR
 .RS 4
 This function prints string in the format of the JSON table of numbers\&.
 .sp
+Syntax:
 \fBjson_array_num\fR
 "array_name" num1 [[num2] \&.\&.\&.] ""
 .RE
@@ -105,27 +108,33 @@ This function prints string in the format of the JSON table of numbers\&.
 .RS 4
 This function prints string in the format of the JSON table of strings\&.
 .sp
+Syntax:
 \fBjson_array_str\fR
 "array_name" "str1" [["str2"] \&.\&.\&.] ""
 .RE
 .PP
 \fBjson_list\fR
 .RS 4
-TBD\&.
+This function prints string in the format of the JSON list of unspecified elements\&.
 .RE
 .PP
 \fBjson_num\fR
 .RS 4
-TBD\&.
+This function prints list of parameters in the format of the JSON field with list of numbers\&.
+.sp
+Syntax:
+\fBjson_num\fR
+"list_num_name" num1 [[num2] \&.\&.\&.] ""
 .RE
 .PP
 \fBjson_str\fR
 .RS 4
-TBD\&.
+This function prints list of parameters in the format of the JSON field with list of strings\&.
+.sp
+Syntax:
+\fBjson_num\fR
+"list_str_name" "str1" [["str2"] \&.\&.\&.] ""
 .RE
-.PP
-\fBNOTE:\fR
-Last argument of all above functions must be empty the string ("")\&.
 .PP
 \fBzabbix_api\fR
 .RS 4

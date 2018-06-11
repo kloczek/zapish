@@ -92,6 +92,7 @@ the GNU General Public License Version 2.
   </refsect1>
   <refsect1 id="options">
     <title>FUNCTIONS</title>
+      <para><command>NOTE:</command>Below all json_* functions as last argument must have empty string ("").</para>
     <variablelist remap="IP">
       <varlistentry>
         <term>
@@ -101,7 +102,8 @@ the GNU General Public License Version 2.
           <para>
             This function prints string in the format of the JSON table of numbers.
           </para>
-          <para><command>json_array_num</command> "array_name" num1 [[num2] ...] ""
+          <para>
+            Syntax: <command>json_array_num</command> "array_name" num1 [[num2] ...] ""
           </para>
         </listitem>
       </varlistentry>
@@ -113,7 +115,8 @@ the GNU General Public License Version 2.
           <para>
             This function prints string in the format of the JSON table of strings.
           </para>
-          <para><command>json_array_str</command> "array_name" "str1" [["str2"] ...] ""
+          <para>
+            Syntax: <command>json_array_str</command> "array_name" "str1" [["str2"] ...] ""
           </para>
         </listitem>
       </varlistentry>
@@ -122,7 +125,9 @@ the GNU General Public License Version 2.
           <option>json_list</option>
         </term>
         <listitem>
-          <para>TBD.</para>
+          <para>
+            This function prints string in the format of the JSON list of unspecified elements.
+          </para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -130,7 +135,12 @@ the GNU General Public License Version 2.
           <option>json_num</option>
         </term>
         <listitem>
-          <para>TBD.</para>
+          <para>
+            This function prints list of parameters in the format of the JSON field with list of numbers.
+	  </para>
+	  <para>
+	    Syntax: <command>json_num</command> "list_num_name" num1 [[num2] ...] ""
+	  </para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -138,11 +148,14 @@ the GNU General Public License Version 2.
           <option>json_str</option>
         </term>
         <listitem>
-          <para>TBD.</para>
+          <para>
+            This function prints list of parameters in the format of the JSON field with list of strings.
+	  </para>
+	  <para>
+	    Syntax: <command>json_num</command> "list_str_name" "str1" [["str2"] ...] ""
+	  </para>
         </listitem>
       </varlistentry>
-      <para><command>NOTE:</command>
-      Last argument of all above functions must be empty the string ("").</para>
       <varlistentry>
         <term>
           <option>zabbix_api</option>
