@@ -107,44 +107,46 @@ zabbix_api() {
 #====================================
 
 zapish_init() {
-	read -p "Enter URL of the Zabbix API gateway [http://localhost/api_jsonrpc.php]: " zapish_url
+	echo -n "Enter URL of the Zabbix API gateway [http://localhost/api_jsonrpc.php]: "
+	read zapish_url
 	if [ ! -n "$zapish_url" ]; then
 		zapish_url="http://localhost/api_jsonrpc.php"
 	fi
 
-	read -p "Enter Zabbix API account name [Admin]: " zapish_user
+	echo -n "Enter Zabbix API account name [Admin]: "
+	read zapish_user
 	if [ ! -n "$zapish_user" ]; then
 		zapish_user="Admin"
 	fi
 
-	read -p "Enter Zabbix API account password [zabbix]: " zapish_pwd
+	echo -n "Enter Zabbix API account password [zabbix]: "
+	read zapish_pwd
 	if [ ! -n "$zapish_pwd" ]; then
 		zapish_pwd="zabbix"
 	fi
 
-	local request="{"
-	request+="$(json_str jsonrpc "2.0" \
+	zapish_request="{""$(json_str jsonrpc "2.0" \
 		$(json_str method user.login \
 		$(json_list params \
 			$(json_str user "$zapish_user" \
+			"") \
 			$(json_str password "$zapish_pwd" \
-			"")) \
+			"") \
 		"") \
 		$(json_num id 0 \
 		"") \
-		))"
-	request+="}"
+		))""}"
 
-	local result="$(curl --silent -X POST -H \
-		'Content-Type: application/json' -d "$request" $zapish_url)"
+	zapish_result="$(curl --silent -X POST -H \
+		'Content-Type: application/json' -d "${zapish_request}" ${zapish_url})"
 
-	if [ "$(json_get "${result}" .error )" != "null" ]; then
+	if [ "$(json_get "${zapish_result}" .error )" != "null" ]; then
 		echo "Zabbix API authentication error."
 		exit 1
 	fi
 
 	echo zapish_url=\"$zapish_url\"	> ~/.zapish.rc
-	echo zapish_auth=$(json_get "${result}" .result) >> ~/.zapish.rc
+	echo zapish_auth=$(json_get "${zapish_result}" .result) >> ~/.zapish.rc
 	chmod 600 ~/.zapish.rc
 	echo "Zabbix API authentication successful. No Zabbix API call."
 	echo "zapish authentication token has been stored in ~/.zapish.rc"
