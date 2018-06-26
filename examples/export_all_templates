@@ -30,7 +30,7 @@ while read template_name; do
 			"$(json_str "output" "simple" \
 			"")" \
 		"")" \
-	)" .result[].templateid)"
+	)" '.result[].templateid')"
 
 	xml_output="$(zabbix_api configuration.export \
 		"$(json_list params \

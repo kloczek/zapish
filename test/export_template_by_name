@@ -26,7 +26,7 @@ zapish_result=$(zabbix_api configuration.export \
 	$(json_list params \
 		$(json_list options \
 			$(json_array_num templates \
-				$(json_get "${zapish_result}" .result[].templateid) \
+				$(json_get "${zapish_result}" '.result[].templateid') \
 			"") \
 		"") \
 		$(json_str format xml \
@@ -34,4 +34,3 @@ zapish_result=$(zabbix_api configuration.export \
 	"")
 )
 echo ${zapish_result} > ${template_name}.raw
-

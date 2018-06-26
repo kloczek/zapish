@@ -25,4 +25,4 @@ zapish_result=$(zabbix_api template.get \
 )
 
 echo ${zapish_result}
-json_get "${zapish_result}" .result[].templateid
+json_get "${zapish_result}" '.result[].templateid'

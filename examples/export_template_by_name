@@ -23,7 +23,7 @@ templates=$(zabbix_api template.get \
 	"")" \
 )
 
-templateid="$(json_get "${templates=}" .result[].templateid)"
+templateid="$(json_get "${templates=}" '.result[].templateid')"
 
 xml_output=$(zabbix_api configuration.export \
 	"$(json_list params \

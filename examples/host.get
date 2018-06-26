@@ -48,4 +48,4 @@ while [ $# -gt 0 ]; do
 	esac
 done
 
-echo "hostname \"$hostname\" hostid is $(json_get "${zapish_result}" .result[].hostid)"
+echo "hostname \"$hostname\" hostid is $(json_get "${zapish_result}" '.result[].hostid')"
