@@ -1,0 +1,132 @@
+#!/bin/sh
+#
+# get template by name
+
+if [ -e ../zapish.inc ]; then
+	. ../zapish.inc
+elif [ -e /usr/libexec/zapish/zapish.inc ]; then
+	. /usr/libexec/zapish/zapish.inc
+else
+	echo "No zapish.inc found"
+	exit 1
+fi
+
+print_help() {
+	echo "Usage: host_macro <command> <hostname> [<macro_name>] [<macro_value>]"
+	echo
+	echo "Commands:"
+	echo "	create		create host macro"
+	echo "	get		list host macros"
+	echo "	help		print this help"
+	echo "	delete		delete host macro"
+	echo "	update		update existing host macro"
+	echo
+	exit 1
+}
+
+if [ $# = 0 ]; then
+	print_help
+fi
+
+get_host_name() {
+	if [ -z "${1}" ]; then
+		echo
+		echo "Error: missing host name specified"
+		echo
+		print_help
+	fi
+	host_name="${1}"
+}
+
+get_macro_name() {
+	if [ -z "${1}" ]; then
+		echo
+		echo "Error: missing macro name specified"
+		echo
+		print_help
+	fi
+	macro_name="${1}"
+}
+
+get_macro_value() {
+	if [ -z "${1}" ]; then
+		echo
+		echo "Error: missing macro name specified"
+		echo
+		print_help
+	fi
+	value_value="${1}"
+}
+
+command="${1}"
+shift
+
+case "${command}" in
+	"get")
+		get_host_name "${1}"
+		;;
+	"create")
+		get_host_name "${1}"
+		shift
+		get_macro_name "${1}"
+		shift
+		get_macro_value "${1}"
+		;;
+	"delete")
+		get_host_name "${1}"
+		shift
+		get_macro_name "${1}"
+		;;
+	"update")
+		get_host_name "${1}"
+		shift
+		get_macro_name "${1}"
+		shift
+		get_macro_value "${1}"
+		;;
+	'help')
+		print_help
+		;;
+	*)
+		print_help
+		;;
+esac
+
+histid_str="$(json_get "$(zabbix_api host.get \
+		"$(json_list params \
+			"$(json_list "filter" \
+				"$(json_array_str "name" "${host_name}" \
+					"" \
+				"")" \
+			"")" \
+			"$(json_str "output" "simple" \
+			"")" \
+		"")" \
+	)" '.result[].hostid')"
+
+hostid=${histid_str:1:-1}
+
+if [ -z "${hostid}" ]; then
+	echo
+	echo "Hostname \"${host_name}\" does not exis"
+	echo
+	print_help
+fi
+
+case "${command}" in
+	"get")
+		echo "Hostname: \"${host_name}"\
+		result="$(zabbix_api usermacro.get \
+				"$(json_list params \
+					"$(json_str "output" "extended")" \
+					"$(json_str "hostid" ${hostid})" \
+				"")"
+			"")"
+		;;
+	"create")
+		;;
+	"delete")
+		;;
+	"update")
+		;;
+esac
