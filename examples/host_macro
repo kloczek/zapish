@@ -118,8 +118,8 @@ case "${command}" in
 		echo "Hostname: \"${host_name}"\
 		result="$(zabbix_api usermacro.get \
 				"$(json_list params \
-					"$(json_str "output" "extended")" \
-					"$(json_str "hostid" ${hostid})" \
+					"$(json_str "output" "extend")" \
+					"$(json_str "hostids" ${hostid})" \
 				"")"
 			"")"
 		;;
