@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # get template by name
 
@@ -55,7 +55,7 @@ get_macro_value() {
 		echo
 		print_help
 	fi
-	value_value="${1}"
+	macro_value="$(echo ${1} | sed 's,\",\\\",g')"
 }
 
 command="${1}"
@@ -104,7 +104,7 @@ histid_str="$(json_get "$(zabbix_api host.get \
 		"")" \
 	)" '.result[].hostid')"
 
-hostid=${histid_str:1:-1}
+hostid="${histid_str:1:-1}"
 
 if [ -z "${hostid}" ]; then
 	echo
@@ -115,17 +115,29 @@ fi
 
 case "${command}" in
 	"get")
-		echo "Hostname: \"${host_name}"\
+		echo "Hostname: \"${host_name}\""
 		result="$(zabbix_api usermacro.get \
-				"$(json_list params \
+				"$(json_list "params" \
 					"$(json_str "output" "extend")" \
-					"$(json_str "hostids" ${hostid})" \
+					"$(json_str "hostids" "${hostid}")" \
+				"")" \
+			"")"
+		echo "${result}" | jq .
+		;;
+	"create")
+		result="$(zabbix_api usermacro.create \
+				"$(json_list "params" \
+					"$(json_str "hostid" "${hostid}")" \
+					"$(json_str "macro" "${macro_name}")" \
+					"$(json_str "value" "${macro_value}")" \
 				"")"
 			"")"
 		;;
-	"create")
-		;;
 	"delete")
+		result="$(zabbix_api usermacro.delete \
+				"$(json_array_str "params" "${macro_name}" "" \
+				"")"
+			"")"
 		;;
 	"update")
 		;;
