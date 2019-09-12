@@ -45,7 +45,7 @@ while read template_name; do
 	)"
 
 	printf "Template id=%7s, Name=%-40s dump to \"%s.xml\"\n" ${template_id} "\"${template_name}\"" "${template_name}"
-	echo "${xml_output}" | jq -r .result | xmllint --format - > ${template_name}.xml
+	echo "${xml_output}" | jq -r .result | xmllint --format - > "${template_name}.xml"
 	#printf "Template id=%7s, Name=%-40s dump to \"%s.raw\"\n" ${template_id} "\"${template_name}\"" "${template_name}"
-	#echo "${xml_output}" | jq .result > ${template_name}.raw
+	#echo "${xml_output}" | jq .result > "${template_name}.raw"
 done
