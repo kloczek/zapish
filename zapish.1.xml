@@ -61,7 +61,7 @@ the GNU General Public License Version 2.
        The <command>zapish</command> is the SH script which provides easy to use zabbix API CLI interface.
     </para>
     <para>
-      Thist sctipt uses zapish.inc. It demostrates how to use zapish.inc file in own POSIX SH scripts.
+      This sctipt uses zapish.inc. It demostrates how to use zapish.inc file in own POSIX SH scripts.
     </para>
   </refsect1>
   <refsect1 id="options">
